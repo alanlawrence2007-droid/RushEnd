@@ -195,7 +195,9 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   #intro-logo { width: min(290px, 72vw); }
 }
 @media (prefers-reduced-motion: reduce) {
-  #intro-overlay { display: none; }
+  #intro-overlay { background: #000; }
+  .intro-half { transition: none; }
+  #intro-logo { transition: none; }
 }
 
 /* Vaqo / Navigation mark: the rail uses the supplied square logo as a deliberate crop so the full R symbol reads at a glance. */

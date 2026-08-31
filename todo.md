@@ -1,5 +1,12 @@
 # Vaqo build checklist
 
+## Published intro visibility diagnosis
+
+- [x] Audit the public bundle and all conditions that can bypass the intro.
+- [x] Make the intro cache-safe and reliably mounted on the public site.
+- [x] Verify the public deployment and save a new checkpoint.
+
+
 ## First-load intro reliability fix
 
 - [x] Start the intro in a guaranteed visible logo state instead of waiting for a delayed animation frame.
