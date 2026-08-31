@@ -10,7 +10,7 @@ function MiniChart({ points, color }: { points: number[]; color: string }) {
   const min = Math.min(...points);
   const range = Math.max(1, max - min);
   const coords = points.map((point, index) => `${(index / (points.length - 1)) * 100},${100 - ((point - min) / range) * 72 - 14}`).join(" ");
-  return <div className="relative h-[132px] overflow-hidden rounded-xl border border-white/[.08] bg-[#101611] px-2 pb-5 pt-2">
+  return <div className="relative h-[132px] overflow-hidden rounded-xl border border-white/[.08] bg-[#120c12] px-2 pb-5 pt-2">
     <div className="absolute inset-x-2 top-1/2 border-t border-dashed border-white/[.07]" />
     <div className="absolute inset-x-2 bottom-[27px] border-t border-dashed border-white/[.07]" />
     <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="h-full w-full"><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stopColor={color} stopOpacity=".34" /><stop offset="1" stopColor={color} stopOpacity="0" /></linearGradient></defs><polygon points={`0,100 ${coords} 100,100`} fill="url(#chartFill)" /><polyline points={coords} fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
@@ -20,8 +20,8 @@ function MiniChart({ points, color }: { points: number[]; color: string }) {
 
 function QueuePeople({ count, level }: { count: number; level: QueueLocation["crowd"] }) {
   const visible = Math.min(count, 18);
-  return <div className="flex min-h-[48px] flex-wrap items-center gap-2 rounded-xl border border-white/[.08] bg-[#101611] px-3 py-3">
-    {Array.from({ length: visible }).map((_, index) => <span key={index} className={`queue-dot ${index % 4 === 1 ? "delay-1" : index % 4 === 2 ? "delay-2" : index % 4 === 3 ? "delay-3" : ""} flex h-5 w-5 items-center justify-center rounded-full border border-[#0e1210] text-[8px] font-bold ${level === "low" ? "bg-[#ff8a2b] text-[#07120e]" : level === "moderate" ? "bg-[#ff9b18] text-[#180e04]" : "bg-[#ff5d73] text-[#180b07]"}`}><Users size={10} strokeWidth={2.4} /></span>)}
+  return <div className="flex min-h-[48px] flex-wrap items-center gap-2 rounded-xl border border-white/[.08] bg-[#120c12] px-3 py-3">
+    {Array.from({ length: visible }).map((_, index) => <span key={index} className={`queue-dot ${index % 4 === 1 ? "delay-1" : index % 4 === 2 ? "delay-2" : index % 4 === 3 ? "delay-3" : ""} flex h-5 w-5 items-center justify-center rounded-full border border-[#0d090f] text-[8px] font-bold ${level === "low" ? "bg-[#ff8a2b] text-[#160b05]" : level === "moderate" ? "bg-[#ff9b18] text-[#180e04]" : "bg-[#ff5d73] text-[#180b07]"}`}><Users size={10} strokeWidth={2.4} /></span>)}
     {count > visible && <span className="text-[11px] text-[#89978d]">+{count - visible} more</span>}
   </div>;
 }
@@ -46,7 +46,7 @@ export default function LocationDetail({ location, onClose }: { location: QueueL
           <div className="mt-5 flex items-center gap-2 text-[10px] text-[#8d9b90]"><Radio size={13} className={location.confidence === "live" ? "text-[#ff8a2b]" : "text-[#ff9b18]"} /> {location.confidence === "live" ? `Live — updated ${location.lastUpdated}` : "Estimated from past patterns"}</div>
         </div>
 
-        <div className="grid grid-cols-3 divide-x divide-white/[.09] rounded-xl border border-white/[.08] bg-[#101611] py-4">
+        <div className="grid grid-cols-3 divide-x divide-white/[.09] rounded-xl border border-white/[.08] bg-[#120c12] py-4">
           <div className="px-3"><p className="eyebrow">In line right now</p><p className="metric mt-2 text-[24px] font-semibold text-[#f3f3e8]">{location.people}</p><p className="mt-0.5 text-[10px] text-[#77867b]">people</p></div>
           <div className="px-3"><p className="eyebrow">Estimated wait</p><p className="metric mt-2 text-[24px] font-semibold" style={{ color: meta.color }}>{location.wait}<span className="ml-0.5 text-[13px] font-medium">m</span></p><p className="mt-0.5 text-[10px] text-[#77867b]">from now</p></div>
           <div className="px-3"><p className="eyebrow">Best time today</p><p className="mt-2 text-[13px] font-semibold leading-4 text-[#dce5dd]">{location.bestTime}</p><p className="mt-1 flex items-center gap-1 text-[10px] text-[#77867b]"><Clock3 size={10} /> forecast</p></div>
@@ -57,7 +57,7 @@ export default function LocationDetail({ location, onClose }: { location: QueueL
         <div><div className="mb-3 flex items-center justify-between"><p className="eyebrow">Today's pattern</p><span className="flex items-center gap-1 text-[10px] text-[#7d8c81]"><ArrowUpRight size={12} /> typical Tuesday</span></div><MiniChart points={location.trend} color={meta.color} /><Link href={`/location/${location.id}`} className="mt-2 flex items-center justify-between rounded-lg px-1 py-2 text-[11px] font-semibold text-[#8dcfb0] hover:text-[#c0efd4]"><span>See how this place behaves over time</span><ArrowUpRight size={13} /></Link></div>
 
         <div className="space-y-2">
-          {!isCheckedIn ? <Button onClick={() => checkIn(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#a43dff] text-[13px] font-semibold text-[#06101b] shadow-[0_8px_25px_rgba(164,61,255,.18)] hover:bg-[#65a6ee]"><LogIn size={16} /> I'm here — check in</Button> : <Button onClick={() => checkOut(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#ff8a2b] text-[13px] font-semibold text-[#07120e] shadow-[0_8px_25px_rgba(255,138,43,.18)] hover:bg-[#ffbd4a]"><Check size={16} /> Checked in · Just finished? Check out</Button>}
+          {!isCheckedIn ? <Button onClick={() => checkIn(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#a43dff] text-[13px] font-semibold text-[#06101b] shadow-[0_8px_25px_rgba(164,61,255,.18)] hover:bg-[#65a6ee]"><LogIn size={16} /> I'm here — check in</Button> : <Button onClick={() => checkOut(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#ff8a2b] text-[13px] font-semibold text-[#160b05] shadow-[0_8px_25px_rgba(255,138,43,.18)] hover:bg-[#ffbd4a]"><Check size={16} /> Checked in · Just finished? Check out</Button>}
           <button className="flex w-full items-center justify-center gap-2 py-2 text-[11px] text-[#7d8b81] hover:text-[#d1ddd2]"><MessageSquareWarning size={13} /> This looks wrong</button>
         </div>
         <div className="flex items-center gap-2 border-t border-white/[.08] pt-4 text-[10px] leading-4 text-[#66756b]"><LogOut size={13} /> Checking in helps your city make a better call next time.</div>

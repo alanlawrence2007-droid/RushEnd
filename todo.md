@@ -1,5 +1,14 @@
 # Vaqo build checklist
 
+## Supplied video intro and palette cleanup
+
+- [x] Upload and wire `rushend-logo-intro.mp4` as the only intro layer.
+- [x] Remove the custom Vaqo preloader component from the app tree.
+- [x] Ensure the landing page is visible behind the video instead of a blank/white screen.
+- [x] Remove remaining green text and accents in favor of the supplied logo palette.
+- [x] Validate video fallback, transition, and responsive rendering; save a new checkpoint.
+
+
 ## Deterministic preloader and logo-palette correction
 
 - [x] Make the preloader a solid, deterministic timed sequence that cannot vanish early.

@@ -71,7 +71,7 @@
   --sidebar: #120c12;
   --sidebar-foreground: #f3f3e8;
   --sidebar-primary: #ff8a2b;
-  --sidebar-primary-foreground: #07120e;
+  --sidebar-primary-foreground: #160b05;
   --sidebar-accent: #291329;
   --sidebar-accent-foreground: #f3f3e8;
   --sidebar-border: rgba(182, 203, 190, 0.12);
@@ -109,15 +109,15 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .eyebrow { color: #8e9c92; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
   .glass-panel { background: rgba(14, 18, 16, 0.84); border: 1px solid rgba(182, 203, 190, 0.14); box-shadow: 0 18px 52px rgba(0,0,0,.25); backdrop-filter: blur(18px); }
   .hairline { background: rgba(182, 203, 190, 0.14); height: 1px; }
-  .map-texture { background-color: #1d111b; background-image: radial-gradient(circle at 20% 20%, rgba(164, 61, 255, .06), transparent 29%), linear-gradient(rgba(182,203,190,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(182,203,190,.055) 1px, transparent 1px); background-size: auto, 58px 58px, 58px 58px; }
-  .contour-wash { background-image: radial-gradient(ellipse at 78% 18%, rgba(255,138,43,.10), transparent 31%), repeating-radial-gradient(ellipse at 78% 18%, transparent 0 22px, rgba(182,203,190,.045) 23px 24px, transparent 25px 48px); }
+  .map-texture { background-color: #1d111b; background-image: radial-gradient(circle at 20% 20%, rgba(164, 61, 255, .06), transparent 29%), linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px); background-size: auto, 58px 58px, 58px 58px; }
+  .contour-wash { background-image: radial-gradient(ellipse at 78% 18%, rgba(255,138,43,.10), transparent 31%), repeating-radial-gradient(ellipse at 78% 18%, transparent 0 22px, rgba(255,255,255,.045) 23px 24px, transparent 25px 48px); }
   .route-line { stroke-dasharray: 5 9; animation: route-dash 15s linear infinite; }
   .queue-dot { animation: queue-breathe 4.6s var(--ease-in-out) infinite; transform-origin: center; }
   .queue-dot.delay-1 { animation-delay: -1.2s; }
   .queue-dot.delay-2 { animation-delay: -2.4s; }
   .queue-dot.delay-3 { animation-delay: -3.4s; }
-  .map-grid-line { stroke: rgba(182,203,190,.14); stroke-width: 1; }
-  .map-road { stroke: rgba(182,203,190,.18); stroke-linecap: round; fill: none; }
+  .map-grid-line { stroke: rgba(255,255,255,.14); stroke-width: 1; }
+  .map-road { stroke: rgba(255,255,255,.18); stroke-linecap: round; fill: none; }
   .map-road.major { stroke: rgba(243,243,232,.23); stroke-width: 4; }
   .map-road.minor { stroke-width: 1.5; }
   .map-water { fill: rgba(164,61,255,.06); stroke: rgba(164,61,255,.16); }
@@ -157,92 +157,43 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 @media (min-width: 1024px) { .container { max-width: 1280px; padding: 0 2rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 
-/* Vaqo / Black-screen intro: the logo has its own stage, while the split panels reveal the app from the center. */
-.vaqo-preloader {
+/* Vaqo / Supplied intro video: full-viewport black stage that exits without exposing a blank page. */
+.vaqo-video-intro {
   position: fixed;
   inset: 0;
   z-index: 100;
-  overflow: hidden;
-  background: #000;
-  color: #fff;
-  isolation: isolate;
-}
-.vaqo-preloader__base {
-  position: absolute;
-  inset: 0;
-  z-index: 10;
-  background: #000;
-  opacity: 1;
-  transition: opacity 1.35s var(--ease-in-out);
-}
-.vaqo-preloader__logo {
-  position: absolute;
-  inset: 0;
-  z-index: 40;
   display: grid;
   place-items: center;
-  opacity: 0;
-  transition: opacity .85s var(--ease-out);
+  overflow: hidden;
+  background: #000;
+  opacity: 1;
+  transition: opacity .5s var(--ease-out);
 }
-.vaqo-preloader__logo img {
+.vaqo-video-intro.is-fading { opacity: 0; }
+.vaqo-video-intro__video {
   display: block;
-  width: min(68vw, 520px);
-  height: auto;
-  max-height: 68vh;
-  object-fit: contain;
-}
-.vaqo-preloader[data-stage="logo"] .vaqo-preloader__logo,
-.vaqo-preloader[data-stage="fade"] .vaqo-preloader__logo { opacity: 1; }
-.vaqo-preloader[data-stage="fade"] .vaqo-preloader__logo { opacity: 0; }
-.vaqo-preloader__split {
-  position: absolute;
-  inset: 0;
-  z-index: 30;
-  display: flex;
-  pointer-events: none;
-}
-.vaqo-preloader__panel {
-  width: 50%;
+  width: 100%;
   height: 100%;
   background: #000;
-  will-change: transform;
-  transition: transform 1.45s var(--ease-in-out);
+  object-fit: contain;
 }
-.vaqo-preloader__panel--left {
-  border-right: 1px solid rgba(255, 138, 43, .35);
-  transform: translate3d(0, 0, 0);
-}
-.vaqo-preloader__panel--right {
-  border-left: 1px solid rgba(255, 93, 115, .35);
-  transform: translate3d(0, 0, 0);
-}
-.vaqo-preloader[data-stage="reveal"] .vaqo-preloader__base { opacity: 0; }
-.vaqo-preloader[data-stage="reveal"] .vaqo-preloader__panel--left { transform: translate3d(-102%, 0, 0); }
-.vaqo-preloader[data-stage="reveal"] .vaqo-preloader__panel--right { transform: translate3d(102%, 0, 0); }
-.vaqo-preloader__skip {
+.vaqo-video-intro__skip {
   position: absolute;
   top: 2rem;
   right: 2.5rem;
-  z-index: 50;
-  border: 1px solid rgba(255, 255, 255, .2);
+  border: 1px solid rgba(255, 255, 255, .24);
   border-radius: 999px;
-  background: transparent;
+  background: rgba(0, 0, 0, .42);
   padding: .62rem .85rem;
-  color: rgba(255, 255, 255, .66);
+  color: rgba(255, 255, 255, .76);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
   transition: border-color .18s var(--ease-out), color .18s var(--ease-out), transform .18s var(--ease-out);
 }
-.vaqo-preloader__skip:hover { border-color: rgba(255,255,255,.5); color: #fff; transform: translateY(-1px); }
-.vaqo-preloader__skip:focus-visible { outline: 2px solid #ff8a2b; outline-offset: 4px; }
+.vaqo-video-intro__skip:hover { border-color: rgba(255,255,255,.62); color: #fff; transform: translateY(-1px); }
+.vaqo-video-intro__skip:focus-visible { outline: 2px solid #ff8a2b; outline-offset: 4px; }
 @media (max-width: 639px) {
-  .vaqo-preloader__logo img { width: min(82vw, 410px); max-height: 52vh; }
-  .vaqo-preloader__skip { top: 1.25rem; right: 1.25rem; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .vaqo-preloader__base,
-  .vaqo-preloader__logo,
-  .vaqo-preloader__panel { transition-duration: .01ms; }
+  .vaqo-video-intro__skip { top: 1.25rem; right: 1.25rem; }
 }

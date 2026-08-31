@@ -4,7 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AppShell from "./components/AppShell";
-import VaqoPreloader from "./components/VaqoPreloader";
+import VaqoVideoIntro from "./components/VaqoVideoIntro";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { QueueProvider } from "./contexts/QueueContext";
 import Home from "./pages/Home";
@@ -29,7 +29,7 @@ function Router() {
 }
 
 function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><VaqoPreloader><Router /></VaqoPreloader></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><VaqoVideoIntro><Router /></VaqoVideoIntro></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;

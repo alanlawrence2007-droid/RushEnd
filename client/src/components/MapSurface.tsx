@@ -28,8 +28,8 @@ export default function MapSurface({ locations, selectedId, onSelect }: { locati
     </div>
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_45%_44%,transparent_0%,rgba(14,18,16,.05)_48%,rgba(14,18,16,.68)_100%)]" />
 
-    <div className="pointer-events-none absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/[.12] bg-[#0e1210]/80 px-3 py-2 text-[11px] text-[#a8b5aa] backdrop-blur"><span className="h-1.5 w-1.5 rounded-full bg-[#ff8a2b] shadow-[0_0_8px_rgba(255,138,43,.8)]" /> 7 places reporting now <span className="text-[#56635a]">·</span> <span className="metric">34</span> min avg wait</div>
-    <div className="absolute right-5 top-5 z-10 flex flex-col overflow-hidden rounded-xl border border-white/[.12] bg-[#0e1210]/80 backdrop-blur">
+    <div className="pointer-events-none absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/[.12] bg-[#0d090f]/80 px-3 py-2 text-[11px] text-[#a8b5aa] backdrop-blur"><span className="h-1.5 w-1.5 rounded-full bg-[#ff8a2b] shadow-[0_0_8px_rgba(255,138,43,.8)]" /> 7 places reporting now <span className="text-[#56635a]">·</span> <span className="metric">34</span> min avg wait</div>
+    <div className="absolute right-5 top-5 z-10 flex flex-col overflow-hidden rounded-xl border border-white/[.12] bg-[#0d090f]/80 backdrop-blur">
       {[Plus, Minus, RotateCcw].map((Icon, index) => <button key={index} aria-label={index === 0 ? "Zoom in" : index === 1 ? "Zoom out" : "Reset map"} className="flex h-9 w-9 items-center justify-center border-b border-white/[.08] text-[#8d9c91] last:border-b-0 hover:bg-white/[.06] hover:text-[#f3f3e8]"><Icon size={15} /></button>)}
     </div>
 
@@ -39,7 +39,7 @@ export default function MapSurface({ locations, selectedId, onSelect }: { locati
       return <button key={location.id} onClick={() => onSelect(location)} className="group absolute z-10 -translate-x-1/2 -translate-y-1/2 text-left" style={{ left: `${location.position.left}%`, top: `${location.position.top}%` }} aria-label={`${location.name}, ${meta.label}, ${location.wait} minute wait`}>
         <span className={cn("signal-halo absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border", location.crowd === "low" ? "border-[#ff8a2b]/50" : location.crowd === "moderate" ? "border-[#ff9b18]/50" : "border-[#ff5d73]/50", index % 3 === 1 ? "slow" : index % 3 === 2 ? "fast" : "")} />
         <span className={cn("relative block h-3.5 w-3.5 rounded-full transition duration-200 group-hover:scale-125", isSelected && "ring-4 ring-white/20", location.crowd === "low" ? "dot-teal" : location.crowd === "moderate" ? "dot-amber" : "dot-coral")} />
-        <span className={cn("pointer-events-none absolute left-5 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-white/[.10] bg-[#0e1210]/90 px-2.5 py-1.5 text-[10px] text-[#d8e0d8] shadow-xl backdrop-blur transition group-hover:block sm:block", isSelected && "border-white/[.25] bg-[#18201c]")}>{location.name} <span style={{ color: meta.color }}>· {location.wait}m</span></span>
+        <span className={cn("pointer-events-none absolute left-5 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-white/[.10] bg-[#0d090f]/90 px-2.5 py-1.5 text-[10px] text-[#d8e0d8] shadow-xl backdrop-blur transition group-hover:block sm:block", isSelected && "border-white/[.25] bg-[#20121d]")}>{location.name} <span style={{ color: meta.color }}>· {location.wait}m</span></span>
       </button>;
     })}
 
@@ -50,8 +50,8 @@ export default function MapSurface({ locations, selectedId, onSelect }: { locati
     </div>
 
     <div className="pointer-events-none absolute bottom-5 left-5 right-5 z-10 flex items-end justify-between gap-4">
-      <div className="hidden items-center gap-3 rounded-lg border border-white/[.09] bg-[#0e1210]/75 px-3 py-2 text-[10px] text-[#849187] backdrop-blur sm:flex"><span className="font-semibold uppercase tracking-[.14em] text-[#67766b]">Crowd</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff8a2b]" /> Quiet</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff9b18]" /> Moderate</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff5d73]" /> Heavy</span></div>
-      <div className="ml-auto flex items-center gap-2 rounded-lg border border-[#a43dff]/20 bg-[#0e1210]/80 px-3 py-2 text-[10px] text-[#ff5cc8] backdrop-blur"><LocateFixed size={12} /> Approx. location</div>
+      <div className="hidden items-center gap-3 rounded-lg border border-white/[.09] bg-[#0d090f]/75 px-3 py-2 text-[10px] text-[#849187] backdrop-blur sm:flex"><span className="font-semibold uppercase tracking-[.14em] text-[#67766b]">Crowd</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff8a2b]" /> Quiet</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff9b18]" /> Moderate</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff5d73]" /> Heavy</span></div>
+      <div className="ml-auto flex items-center gap-2 rounded-lg border border-[#a43dff]/20 bg-[#0d090f]/80 px-3 py-2 text-[10px] text-[#ff5cc8] backdrop-blur"><LocateFixed size={12} /> Approx. location</div>
     </div>
   </div>;
 }
