@@ -1,5 +1,13 @@
 # Vaqo build checklist
 
+## Deterministic preloader and logo-palette correction
+
+- [x] Make the preloader a solid, deterministic timed sequence that cannot vanish early.
+- [x] Show the supplied logo clearly, fade it out, then slide the left and right black halves outward.
+- [x] Replace green webapp accents with the supplied logo’s orange, coral, pink, and violet palette.
+- [x] Validate fresh-load behavior and save a new checkpoint.
+
+
 ## Timing and palette revision
 
 - [x] Keep the Vaqo preloader visible for at least five seconds before the reveal.

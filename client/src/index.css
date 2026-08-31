@@ -44,56 +44,56 @@
 }
 
 :root {
-  --background: #0b110d;
+  --background: #0d090f;
   --foreground: #f3f3e8;
-  --card: #111b15;
+  --card: #171019;
   --card-foreground: #f3f3e8;
-  --popover: #0e1711;
+  --popover: #120b15;
   --popover-foreground: #f3f3e8;
-  --primary: #2ac47f;
-  --primary-foreground: #07120e;
-  --secondary: #17251c;
-  --secondary-foreground: #c8d2c8;
-  --muted: #152019;
+  --primary: #ff8a2b;
+  --primary-foreground: #160b05;
+  --secondary: #271323;
+  --secondary-foreground: #f2d6e4;
+  --muted: #20131e;
   --muted-foreground: #8e9c92;
-  --accent: #183021;
+  --accent: #35152d;
   --accent-foreground: #f3f3e8;
-  --destructive: #ff6b5e;
-  --destructive-foreground: #180b07;
+  --destructive: #ff5d73;
+  --destructive-foreground: #18070d;
   --border: rgba(182, 203, 190, 0.15);
   --input: rgba(182, 203, 190, 0.18);
-  --ring: #b05bff;
-  --chart-1: #2ac47f;
-  --chart-2: #ffb12b;
-  --chart-3: #ff6b5e;
-  --chart-4: #b05bff;
+  --ring: #a43dff;
+  --chart-1: #ff8a2b;
+  --chart-2: #ff9b18;
+  --chart-3: #ff5d73;
+  --chart-4: #a43dff;
   --chart-5: #f3f3e8;
-  --sidebar: #0d1711;
+  --sidebar: #120c12;
   --sidebar-foreground: #f3f3e8;
-  --sidebar-primary: #2ac47f;
+  --sidebar-primary: #ff8a2b;
   --sidebar-primary-foreground: #07120e;
-  --sidebar-accent: #173022;
+  --sidebar-accent: #291329;
   --sidebar-accent-foreground: #f3f3e8;
   --sidebar-border: rgba(182, 203, 190, 0.12);
-  --sidebar-ring: #b05bff;
+  --sidebar-ring: #a43dff;
   --radius: 0.75rem;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 * { box-sizing: border-box; }
-html { background: #0b110d; }
+html { background: #0d090f; }
 body {
   margin: 0;
   min-width: 320px;
-  background: #0b110d;
+  background: #0d090f;
   color: #f3f3e8;
   font-family: "Work Sans", ui-sans-serif, system-ui, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 button, input { font: inherit; }
-button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #b05bff; outline-offset: 3px; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid #a43dff; outline-offset: 3px; }
 
 @layer base {
   * { @apply border-border outline-ring/50; }
@@ -109,8 +109,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .eyebrow { color: #8e9c92; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
   .glass-panel { background: rgba(14, 18, 16, 0.84); border: 1px solid rgba(182, 203, 190, 0.14); box-shadow: 0 18px 52px rgba(0,0,0,.25); backdrop-filter: blur(18px); }
   .hairline { background: rgba(182, 203, 190, 0.14); height: 1px; }
-  .map-texture { background-color: #142219; background-image: radial-gradient(circle at 20% 20%, rgba(55, 138, 221, .06), transparent 29%), linear-gradient(rgba(182,203,190,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(182,203,190,.055) 1px, transparent 1px); background-size: auto, 58px 58px, 58px 58px; }
-  .contour-wash { background-image: radial-gradient(ellipse at 78% 18%, rgba(42,196,127,.10), transparent 31%), repeating-radial-gradient(ellipse at 78% 18%, transparent 0 22px, rgba(182,203,190,.045) 23px 24px, transparent 25px 48px); }
+  .map-texture { background-color: #1d111b; background-image: radial-gradient(circle at 20% 20%, rgba(164, 61, 255, .06), transparent 29%), linear-gradient(rgba(182,203,190,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(182,203,190,.055) 1px, transparent 1px); background-size: auto, 58px 58px, 58px 58px; }
+  .contour-wash { background-image: radial-gradient(ellipse at 78% 18%, rgba(255,138,43,.10), transparent 31%), repeating-radial-gradient(ellipse at 78% 18%, transparent 0 22px, rgba(182,203,190,.045) 23px 24px, transparent 25px 48px); }
   .route-line { stroke-dasharray: 5 9; animation: route-dash 15s linear infinite; }
   .queue-dot { animation: queue-breathe 4.6s var(--ease-in-out) infinite; transform-origin: center; }
   .queue-dot.delay-1 { animation-delay: -1.2s; }
@@ -120,7 +120,7 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .map-road { stroke: rgba(182,203,190,.18); stroke-linecap: round; fill: none; }
   .map-road.major { stroke: rgba(243,243,232,.23); stroke-width: 4; }
   .map-road.minor { stroke-width: 1.5; }
-  .map-water { fill: rgba(176,91,255,.06); stroke: rgba(176,91,255,.16); }
+  .map-water { fill: rgba(164,61,255,.06); stroke: rgba(164,61,255,.16); }
   .signal-halo { animation: halo-breathe 4.8s ease-in-out infinite; transform-origin: center; }
   .signal-halo.slow { animation-duration: 6.4s; }
   .signal-halo.fast { animation-duration: 3.7s; }
@@ -134,21 +134,21 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   .scrim-in { animation: scrim-in .24s ease-out both; }
   .nav-label { transition: color .18s var(--ease-out), opacity .18s var(--ease-out); }
   .nav-item:hover .nav-label { color: #f3f3e8; }
-  .status-teal { color: #62e7a1; }
-  .status-amber { color: #ffbd43; }
-  .status-coral { color: #ff7769; }
-  .status-blue { color: #ff72a8; }
-  .dot-teal { background: #2ac47f; box-shadow: 0 0 0 5px rgba(42,196,127,.14), 0 0 30px rgba(42,196,127,.55); }
-  .dot-amber { background: #ffb12b; box-shadow: 0 0 0 5px rgba(255,177,43,.16), 0 0 30px rgba(255,177,43,.42); }
-  .dot-coral { background: #ff6b5e; box-shadow: 0 0 0 5px rgba(255,107,94,.16), 0 0 30px rgba(255,107,94,.42); }
-  .dot-blue { background: #b05bff; box-shadow: 0 0 0 5px rgba(176,91,255,.14), 0 0 26px rgba(176,91,255,.46); }
+  .status-teal { color: #ffbd4a; }
+  .status-amber { color: #ffb52d; }
+  .status-coral { color: #ff6b73; }
+  .status-blue { color: #ff5cc8; }
+  .dot-teal { background: #ff8a2b; box-shadow: 0 0 0 5px rgba(255,138,43,.14), 0 0 30px rgba(255,138,43,.55); }
+  .dot-amber { background: #ff9b18; box-shadow: 0 0 0 5px rgba(255,155,24,.16), 0 0 30px rgba(255,155,24,.42); }
+  .dot-coral { background: #ff5d73; box-shadow: 0 0 0 5px rgba(255,93,115,.16), 0 0 30px rgba(255,93,115,.42); }
+  .dot-blue { background: #a43dff; box-shadow: 0 0 0 5px rgba(164,61,255,.14), 0 0 26px rgba(164,61,255,.46); }
 }
 
 @keyframes queue-breathe { 0%, 100% { transform: scale(1); opacity: .74; } 50% { transform: scale(1.07); opacity: 1; } }
 @keyframes halo-breathe { 0%,100% { transform: scale(.9); opacity: .28; } 48% { transform: scale(1.18); opacity: .08; } }
 @keyframes route-dash { to { stroke-dashoffset: -140; } }
 @keyframes hero-reveal { from { opacity: 0; transform: translateY(16px); clip-path: inset(10% 0 0 0); } to { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); } }
-@keyframes prediction-flash { 0% { background: rgba(42,196,127,.22); } 100% { background: transparent; } }
+@keyframes prediction-flash { 0% { background: rgba(255,138,43,.22); } 100% { background: transparent; } }
 @keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes panel-in { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes scrim-in { from { opacity: 0; } to { opacity: 1; } }
@@ -156,3 +156,93 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 @media (min-width: 640px) { .container { padding: 0 1.5rem; } }
 @media (min-width: 1024px) { .container { max-width: 1280px; padding: 0 2rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+
+/* Vaqo / Black-screen intro: the logo has its own stage, while the split panels reveal the app from the center. */
+.vaqo-preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  isolation: isolate;
+}
+.vaqo-preloader__base {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: #000;
+  opacity: 1;
+  transition: opacity 1.35s var(--ease-in-out);
+}
+.vaqo-preloader__logo {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transition: opacity .85s var(--ease-out);
+}
+.vaqo-preloader__logo img {
+  display: block;
+  width: min(68vw, 520px);
+  height: auto;
+  max-height: 68vh;
+  object-fit: contain;
+}
+.vaqo-preloader[data-stage="logo"] .vaqo-preloader__logo,
+.vaqo-preloader[data-stage="fade"] .vaqo-preloader__logo { opacity: 1; }
+.vaqo-preloader[data-stage="fade"] .vaqo-preloader__logo { opacity: 0; }
+.vaqo-preloader__split {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  pointer-events: none;
+}
+.vaqo-preloader__panel {
+  width: 50%;
+  height: 100%;
+  background: #000;
+  will-change: transform;
+  transition: transform 1.45s var(--ease-in-out);
+}
+.vaqo-preloader__panel--left {
+  border-right: 1px solid rgba(255, 138, 43, .35);
+  transform: translate3d(0, 0, 0);
+}
+.vaqo-preloader__panel--right {
+  border-left: 1px solid rgba(255, 93, 115, .35);
+  transform: translate3d(0, 0, 0);
+}
+.vaqo-preloader[data-stage="reveal"] .vaqo-preloader__base { opacity: 0; }
+.vaqo-preloader[data-stage="reveal"] .vaqo-preloader__panel--left { transform: translate3d(-102%, 0, 0); }
+.vaqo-preloader[data-stage="reveal"] .vaqo-preloader__panel--right { transform: translate3d(102%, 0, 0); }
+.vaqo-preloader__skip {
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  z-index: 50;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 999px;
+  background: transparent;
+  padding: .62rem .85rem;
+  color: rgba(255, 255, 255, .66);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  transition: border-color .18s var(--ease-out), color .18s var(--ease-out), transform .18s var(--ease-out);
+}
+.vaqo-preloader__skip:hover { border-color: rgba(255,255,255,.5); color: #fff; transform: translateY(-1px); }
+.vaqo-preloader__skip:focus-visible { outline: 2px solid #ff8a2b; outline-offset: 4px; }
+@media (max-width: 639px) {
+  .vaqo-preloader__logo img { width: min(82vw, 410px); max-height: 52vh; }
+  .vaqo-preloader__skip { top: 1.25rem; right: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vaqo-preloader__base,
+  .vaqo-preloader__logo,
+  .vaqo-preloader__panel { transition-duration: .01ms; }
+}

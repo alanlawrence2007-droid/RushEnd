@@ -23,12 +23,12 @@ export default function MapSurface({ locations, selectedId, onSelect }: { locati
           {Array.from({ length: 20 }).map((_, index) => <path key={index} d={`M${index * 55 - 20} 0 V680`} className="map-grid-line" opacity={index % 2 ? .35 : .2} />)}
           {Array.from({ length: 13 }).map((_, index) => <path key={index} d={`M0 ${index * 58} H1000`} className="map-grid-line" opacity={index % 2 ? .35 : .2} />)}
         </g>
-        <path d="M325 362 C380 295 446 300 518 355 S650 430 755 374" fill="none" stroke="#b05bff" strokeWidth="3" strokeLinecap="round" strokeDasharray="3 11" className="route-line" opacity=".7" />
+        <path d="M325 362 C380 295 446 300 518 355 S650 430 755 374" fill="none" stroke="#a43dff" strokeWidth="3" strokeLinecap="round" strokeDasharray="3 11" className="route-line" opacity=".7" />
       </svg>
     </div>
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_45%_44%,transparent_0%,rgba(14,18,16,.05)_48%,rgba(14,18,16,.68)_100%)]" />
 
-    <div className="pointer-events-none absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/[.12] bg-[#0e1210]/80 px-3 py-2 text-[11px] text-[#a8b5aa] backdrop-blur"><span className="h-1.5 w-1.5 rounded-full bg-[#2ac47f] shadow-[0_0_8px_rgba(42,196,127,.8)]" /> 7 places reporting now <span className="text-[#56635a]">·</span> <span className="metric">34</span> min avg wait</div>
+    <div className="pointer-events-none absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/[.12] bg-[#0e1210]/80 px-3 py-2 text-[11px] text-[#a8b5aa] backdrop-blur"><span className="h-1.5 w-1.5 rounded-full bg-[#ff8a2b] shadow-[0_0_8px_rgba(255,138,43,.8)]" /> 7 places reporting now <span className="text-[#56635a]">·</span> <span className="metric">34</span> min avg wait</div>
     <div className="absolute right-5 top-5 z-10 flex flex-col overflow-hidden rounded-xl border border-white/[.12] bg-[#0e1210]/80 backdrop-blur">
       {[Plus, Minus, RotateCcw].map((Icon, index) => <button key={index} aria-label={index === 0 ? "Zoom in" : index === 1 ? "Zoom out" : "Reset map"} className="flex h-9 w-9 items-center justify-center border-b border-white/[.08] text-[#8d9c91] last:border-b-0 hover:bg-white/[.06] hover:text-[#f3f3e8]"><Icon size={15} /></button>)}
     </div>
@@ -37,21 +37,21 @@ export default function MapSurface({ locations, selectedId, onSelect }: { locati
       const meta = crowdMeta[location.crowd];
       const isSelected = location.id === selectedId;
       return <button key={location.id} onClick={() => onSelect(location)} className="group absolute z-10 -translate-x-1/2 -translate-y-1/2 text-left" style={{ left: `${location.position.left}%`, top: `${location.position.top}%` }} aria-label={`${location.name}, ${meta.label}, ${location.wait} minute wait`}>
-        <span className={cn("signal-halo absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border", location.crowd === "low" ? "border-[#2ac47f]/50" : location.crowd === "moderate" ? "border-[#ffb12b]/50" : "border-[#ff6b5e]/50", index % 3 === 1 ? "slow" : index % 3 === 2 ? "fast" : "")} />
+        <span className={cn("signal-halo absolute left-1/2 top-1/2 h-12 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full border", location.crowd === "low" ? "border-[#ff8a2b]/50" : location.crowd === "moderate" ? "border-[#ff9b18]/50" : "border-[#ff5d73]/50", index % 3 === 1 ? "slow" : index % 3 === 2 ? "fast" : "")} />
         <span className={cn("relative block h-3.5 w-3.5 rounded-full transition duration-200 group-hover:scale-125", isSelected && "ring-4 ring-white/20", location.crowd === "low" ? "dot-teal" : location.crowd === "moderate" ? "dot-amber" : "dot-coral")} />
         <span className={cn("pointer-events-none absolute left-5 top-1/2 hidden -translate-y-1/2 whitespace-nowrap rounded-md border border-white/[.10] bg-[#0e1210]/90 px-2.5 py-1.5 text-[10px] text-[#d8e0d8] shadow-xl backdrop-blur transition group-hover:block sm:block", isSelected && "border-white/[.25] bg-[#18201c]")}>{location.name} <span style={{ color: meta.color }}>· {location.wait}m</span></span>
       </button>;
     })}
 
     <div className="absolute z-20 -translate-x-1/2 -translate-y-1/2" style={{ left: `${userLocation.left}%`, top: `${userLocation.top}%` }}>
-      <span className="absolute left-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#b05bff]/50 bg-[#b05bff]/10" />
-      <span className="relative flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#d8ecff] bg-[#b05bff] shadow-[0_0_20px_rgba(176,91,255,.7)]"><span className="h-1 w-1 rounded-full bg-white" /></span>
-      <span className="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md bg-[#b05bff]/15 px-2 py-1 text-[10px] font-medium text-[#9cc6f5]">You are here</span>
+      <span className="absolute left-1/2 top-1/2 h-9 w-9 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#a43dff]/50 bg-[#a43dff]/10" />
+      <span className="relative flex h-4 w-4 items-center justify-center rounded-full border-2 border-[#d8ecff] bg-[#a43dff] shadow-[0_0_20px_rgba(164,61,255,.7)]"><span className="h-1 w-1 rounded-full bg-white" /></span>
+      <span className="absolute left-6 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-md bg-[#a43dff]/15 px-2 py-1 text-[10px] font-medium text-[#9cc6f5]">You are here</span>
     </div>
 
     <div className="pointer-events-none absolute bottom-5 left-5 right-5 z-10 flex items-end justify-between gap-4">
-      <div className="hidden items-center gap-3 rounded-lg border border-white/[.09] bg-[#0e1210]/75 px-3 py-2 text-[10px] text-[#849187] backdrop-blur sm:flex"><span className="font-semibold uppercase tracking-[.14em] text-[#67766b]">Crowd</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#2ac47f]" /> Quiet</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ffb12b]" /> Moderate</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff6b5e]" /> Heavy</span></div>
-      <div className="ml-auto flex items-center gap-2 rounded-lg border border-[#b05bff]/20 bg-[#0e1210]/80 px-3 py-2 text-[10px] text-[#ff72a8] backdrop-blur"><LocateFixed size={12} /> Approx. location</div>
+      <div className="hidden items-center gap-3 rounded-lg border border-white/[.09] bg-[#0e1210]/75 px-3 py-2 text-[10px] text-[#849187] backdrop-blur sm:flex"><span className="font-semibold uppercase tracking-[.14em] text-[#67766b]">Crowd</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff8a2b]" /> Quiet</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff9b18]" /> Moderate</span><span className="flex items-center gap-1.5"><i className="h-2 w-2 rounded-full bg-[#ff5d73]" /> Heavy</span></div>
+      <div className="ml-auto flex items-center gap-2 rounded-lg border border-[#a43dff]/20 bg-[#0e1210]/80 px-3 py-2 text-[10px] text-[#ff5cc8] backdrop-blur"><LocateFixed size={12} /> Approx. location</div>
     </div>
   </div>;
 }

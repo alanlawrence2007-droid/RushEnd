@@ -21,7 +21,7 @@ function MiniChart({ points, color }: { points: number[]; color: string }) {
 function QueuePeople({ count, level }: { count: number; level: QueueLocation["crowd"] }) {
   const visible = Math.min(count, 18);
   return <div className="flex min-h-[48px] flex-wrap items-center gap-2 rounded-xl border border-white/[.08] bg-[#101611] px-3 py-3">
-    {Array.from({ length: visible }).map((_, index) => <span key={index} className={`queue-dot ${index % 4 === 1 ? "delay-1" : index % 4 === 2 ? "delay-2" : index % 4 === 3 ? "delay-3" : ""} flex h-5 w-5 items-center justify-center rounded-full border border-[#0e1210] text-[8px] font-bold ${level === "low" ? "bg-[#2ac47f] text-[#07120e]" : level === "moderate" ? "bg-[#ffb12b] text-[#180e04]" : "bg-[#ff6b5e] text-[#180b07]"}`}><Users size={10} strokeWidth={2.4} /></span>)}
+    {Array.from({ length: visible }).map((_, index) => <span key={index} className={`queue-dot ${index % 4 === 1 ? "delay-1" : index % 4 === 2 ? "delay-2" : index % 4 === 3 ? "delay-3" : ""} flex h-5 w-5 items-center justify-center rounded-full border border-[#0e1210] text-[8px] font-bold ${level === "low" ? "bg-[#ff8a2b] text-[#07120e]" : level === "moderate" ? "bg-[#ff9b18] text-[#180e04]" : "bg-[#ff5d73] text-[#180b07]"}`}><Users size={10} strokeWidth={2.4} /></span>)}
     {count > visible && <span className="text-[11px] text-[#89978d]">+{count - visible} more</span>}
   </div>;
 }
@@ -40,10 +40,10 @@ export default function LocationDetail({ location, onClose }: { location: QueueL
       </div>
       <div className="space-y-6 px-6 py-6">
         <div className="rounded-2xl border border-white/[.09] bg-[#18211b] p-5">
-          <div className="flex items-center gap-2"><span className={`h-2 w-2 rounded-full ${location.crowd === "low" ? "bg-[#2ac47f] shadow-[0_0_9px_rgba(42,196,127,.9)]" : location.crowd === "moderate" ? "bg-[#ffb12b] shadow-[0_0_9px_rgba(255,177,43,.7)]" : "bg-[#ff6b5e] shadow-[0_0_9px_rgba(255,107,94,.7)]"}`} /><span className={`text-[11px] font-semibold uppercase tracking-[.13em] ${meta.className}`}>{meta.label} crowd</span></div>
+          <div className="flex items-center gap-2"><span className={`h-2 w-2 rounded-full ${location.crowd === "low" ? "bg-[#ff8a2b] shadow-[0_0_9px_rgba(255,138,43,.9)]" : location.crowd === "moderate" ? "bg-[#ff9b18] shadow-[0_0_9px_rgba(255,155,24,.7)]" : "bg-[#ff5d73] shadow-[0_0_9px_rgba(255,93,115,.7)]"}`} /><span className={`text-[11px] font-semibold uppercase tracking-[.13em] ${meta.className}`}>{meta.label} crowd</span></div>
           <h3 className="mt-4 font-display text-[33px] font-semibold leading-[1.02] tracking-[-.055em] text-[#f3f3e8]">{isGoNow ? "Go now" : "Wait — here's why"}</h3>
           <p className="mt-3 max-w-[290px] text-[13px] leading-5 text-[#a7b3a8]">{location.note}</p>
-          <div className="mt-5 flex items-center gap-2 text-[10px] text-[#8d9b90]"><Radio size={13} className={location.confidence === "live" ? "text-[#2ac47f]" : "text-[#ffb12b]"} /> {location.confidence === "live" ? `Live — updated ${location.lastUpdated}` : "Estimated from past patterns"}</div>
+          <div className="mt-5 flex items-center gap-2 text-[10px] text-[#8d9b90]"><Radio size={13} className={location.confidence === "live" ? "text-[#ff8a2b]" : "text-[#ff9b18]"} /> {location.confidence === "live" ? `Live — updated ${location.lastUpdated}` : "Estimated from past patterns"}</div>
         </div>
 
         <div className="grid grid-cols-3 divide-x divide-white/[.09] rounded-xl border border-white/[.08] bg-[#101611] py-4">
@@ -57,7 +57,7 @@ export default function LocationDetail({ location, onClose }: { location: QueueL
         <div><div className="mb-3 flex items-center justify-between"><p className="eyebrow">Today's pattern</p><span className="flex items-center gap-1 text-[10px] text-[#7d8c81]"><ArrowUpRight size={12} /> typical Tuesday</span></div><MiniChart points={location.trend} color={meta.color} /><Link href={`/location/${location.id}`} className="mt-2 flex items-center justify-between rounded-lg px-1 py-2 text-[11px] font-semibold text-[#8dcfb0] hover:text-[#c0efd4]"><span>See how this place behaves over time</span><ArrowUpRight size={13} /></Link></div>
 
         <div className="space-y-2">
-          {!isCheckedIn ? <Button onClick={() => checkIn(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#b05bff] text-[13px] font-semibold text-[#06101b] shadow-[0_8px_25px_rgba(176,91,255,.18)] hover:bg-[#65a6ee]"><LogIn size={16} /> I'm here — check in</Button> : <Button onClick={() => checkOut(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#2ac47f] text-[13px] font-semibold text-[#07120e] shadow-[0_8px_25px_rgba(42,196,127,.18)] hover:bg-[#62e7a1]"><Check size={16} /> Checked in · Just finished? Check out</Button>}
+          {!isCheckedIn ? <Button onClick={() => checkIn(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#a43dff] text-[13px] font-semibold text-[#06101b] shadow-[0_8px_25px_rgba(164,61,255,.18)] hover:bg-[#65a6ee]"><LogIn size={16} /> I'm here — check in</Button> : <Button onClick={() => checkOut(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#ff8a2b] text-[13px] font-semibold text-[#07120e] shadow-[0_8px_25px_rgba(255,138,43,.18)] hover:bg-[#ffbd4a]"><Check size={16} /> Checked in · Just finished? Check out</Button>}
           <button className="flex w-full items-center justify-center gap-2 py-2 text-[11px] text-[#7d8b81] hover:text-[#d1ddd2]"><MessageSquareWarning size={13} /> This looks wrong</button>
         </div>
         <div className="flex items-center gap-2 border-t border-white/[.08] pt-4 text-[10px] leading-4 text-[#66756b]"><LogOut size={13} /> Checking in helps your city make a better call next time.</div>
