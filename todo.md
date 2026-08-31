@@ -1,5 +1,13 @@
 # Vaqo build checklist
 
+## Timing and palette revision
+
+- [x] Keep the Vaqo preloader visible for at least five seconds before the reveal.
+- [x] Re-theme the web app around logo-inspired greens with orange, pink, and violet highlights.
+- [x] Verify contrast and responsive rendering after the palette change.
+- [ ] Save a new checkpoint for the revision.
+
+
 ## Vaqo rebrand and preloader revision
 
 - [x] Upload and wire the user-provided Vaqo logo as the brand mark and favicon.
