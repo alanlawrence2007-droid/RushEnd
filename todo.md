@@ -1,5 +1,13 @@
 # Vaqo build checklist
 
+## First-load intro reliability fix
+
+- [x] Start the intro in a guaranteed visible logo state instead of waiting for a delayed animation frame.
+- [x] Keep the overlay mounted until the center-split reveal completes.
+- [x] Add a visible, non-blocking fallback if reduced-motion preferences disable the animation.
+- [x] Validate fresh desktop and mobile loads; save a new checkpoint.
+
+
 ## Provided intro overlay implementation
 
 - [x] Rebuild the supplied six-second black-half overlay choreography in React/CSS.
