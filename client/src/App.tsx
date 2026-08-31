@@ -1,42 +1,34 @@
+/* Queueless / Signal Cartography: one shared shell, one live signal context, many ways to decide. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import AppShell from "./components/AppShell";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { QueueProvider } from "./contexts/QueueContext";
 import Home from "./pages/Home";
-
+import PlanPage from "./pages/PlanPage";
+import DiscoverPage from "./pages/DiscoverPage";
+import CommunityPage from "./pages/CommunityPage";
+import ProfilePage from "./pages/ProfilePage";
+import LocationPage from "./pages/LocationPage";
+import NotFound from "./pages/NotFound";
 
 function Router() {
-  return (
-    <Switch>
-      <Route path={"/"} component={Home} />
-      <Route path={"/404"} component={NotFound} />
-      {/* Final fallback route */}
-      <Route component={NotFound} />
-    </Switch>
-  );
+  return <AppShell><Switch>
+    <Route path="/" component={Home} />
+    <Route path="/plan" component={PlanPage} />
+    <Route path="/discover" component={DiscoverPage} />
+    <Route path="/community" component={CommunityPage} />
+    <Route path="/profile" component={ProfilePage} />
+    <Route path="/location/:id" component={LocationPage} />
+    <Route path="/404" component={NotFound} />
+    <Route component={NotFound} />
+  </Switch></AppShell>;
 }
 
-// NOTE: About Theme
-// - First choose a default theme according to your design style (dark or light bg), than change color palette in index.css
-//   to keep consistent foreground/background color across components
-// - If you want to make theme switchable, pass `switchable` ThemeProvider and use `useTheme` hook
-
 function App() {
-  return (
-    <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-        </TooltipProvider>
-      </ThemeProvider>
-    </ErrorBoundary>
-  );
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><QueueProvider><TooltipProvider><Toaster theme="dark" /><Router /></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;
