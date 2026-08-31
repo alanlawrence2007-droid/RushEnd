@@ -1,5 +1,13 @@
 # Vaqo build checklist
 
+## Provided intro overlay implementation
+
+- [x] Rebuild the supplied six-second black-half overlay choreography in React/CSS.
+- [x] Complete the missing runtime so the overlay reliably starts and hides after the reveal.
+- [x] Keep the Vaqo landing page mounted underneath with no white flash.
+- [x] Validate desktop/mobile behavior and save a new checkpoint.
+
+
 ## Navigation logo-mark refinement
 
 - [x] Show the full R symbol at a readable size in the desktop rail and mobile header.
