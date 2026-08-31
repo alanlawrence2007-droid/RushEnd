@@ -1,13 +1,5 @@
 # Vaqo build checklist
 
-## Post-video screen-opening transition
-
-- [x] Hold a black screen after the intro video ends.
-- [x] Slide two black halves outward from the center to reveal the Vaqo landing page.
-- [x] Keep the transition smooth and responsive with reduced-motion support.
-- [x] Validate the full sequence and save a new checkpoint.
-
-
 ## Intro video sizing refinement
 
 - [x] Scale the intro video inside a centered viewport-safe frame without cropping.
