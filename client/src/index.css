@@ -197,3 +197,23 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 @media (max-width: 639px) {
   .vaqo-video-intro__skip { top: 1.25rem; right: 1.25rem; }
 }
+
+/* Vaqo / Navigation mark: the rail uses the supplied square logo as a deliberate crop so the full R symbol reads at a glance. */
+.logo-crop {
+  position: relative;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #000;
+}
+.logo-crop__image {
+  position: absolute;
+  width: 170%;
+  max-width: none;
+  height: auto;
+  left: -14%;
+  top: -15px;
+}
+.logo-crop--desktop { width: 64px; height: 48px; }
+.logo-crop--mobile { width: 48px; height: 40px; border-radius: 11px; }
+.logo-crop--mobile .logo-crop__image { top: -12px; }

@@ -1,5 +1,12 @@
 # Vaqo build checklist
 
+## Navigation logo-mark refinement
+
+- [x] Show the full R symbol at a readable size in the desktop rail and mobile header.
+- [x] Preserve the full supplied logo in the intro video without changing the source asset.
+- [x] Validate the mark at desktop and mobile sizes; save a new checkpoint.
+
+
 ## Supplied video intro and palette cleanup
 
 - [x] Upload and wire `rushend-logo-intro.mp4` as the only intro layer.

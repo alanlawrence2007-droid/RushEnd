@@ -18,8 +18,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-[#0d090f] text-[#f3f3e8]">
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[246px] flex-col border-r border-white/[.08] bg-[#120c12] lg:flex">
         <div className="flex items-center gap-3 px-7 py-7">
-          <div className="relative flex h-9 w-9 items-center justify-center rounded-[12px] bg-[#ff8a2b] p-1.5 shadow-[0_0_28px_rgba(255,138,43,.18)]">
-            <img src="/manus-storage/vaqo-logo_1faf644c.png" alt="" className="h-full w-full object-contain" />
+          <div className="logo-crop logo-crop--desktop shadow-[0_0_28px_rgba(255,138,43,.18)]">
+            <img src="/manus-storage/vaqo-logo_1faf644c.png" alt="Vaqo mark" className="logo-crop__image" />
           </div>
           <div>
             <p className="font-display text-[17px] font-bold tracking-[-.04em]">Vaqo</p>
@@ -53,7 +53,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       <header className="fixed left-0 right-0 top-0 z-30 flex h-[70px] items-center justify-between border-b border-white/[.08] bg-[#0d090f]/85 px-5 backdrop-blur-xl lg:left-[246px] lg:px-8">
         <div className="flex items-center gap-3 lg:hidden">
-          <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#ff8a2b] p-1.5"><img src="/manus-storage/vaqo-logo_1faf644c.png" alt="" className="h-full w-full object-contain" /></div>
+          <div className="logo-crop logo-crop--mobile"><img src="/manus-storage/vaqo-logo_1faf644c.png" alt="Vaqo mark" className="logo-crop__image" /></div>
           <span className="font-display text-[16px] font-bold tracking-[-.04em]">Vaqo</span>
         </div>
         <div className="hidden items-center gap-2 text-[12px] text-[#86958a] lg:flex"><Home size={14} /> <span className="text-[#cbd4ca]">Bengaluru</span> <span className="text-[#55635a]">/</span> <span>{isMap ? "Live map" : navItems.find((item) => location.startsWith(item.href))?.label ?? "Explore"}</span></div>
