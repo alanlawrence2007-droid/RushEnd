@@ -1,5 +1,12 @@
 # Vaqo build checklist
 
+## Intro video sizing refinement
+
+- [x] Scale the intro video inside a centered viewport-safe frame without cropping.
+- [x] Verify the fit at desktop and mobile sizes.
+- [x] Save a new checkpoint for the sizing update.
+
+
 ## Intro video replacement
 
 - [x] Upload the newly supplied `rushend-intro.mp4` to persistent web storage.
