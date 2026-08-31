@@ -1,4 +1,12 @@
-# Queueless build checklist
+# Vaqo build checklist
+
+## Vaqo rebrand and preloader revision
+
+- [x] Upload and wire the user-provided Vaqo logo as the brand mark and favicon.
+- [x] Replace Queueless naming with Vaqo across the visible app chrome and metadata.
+- [x] Rebuild the first-load sequence as black screen → centered logo fade → smooth left/right center-split reveal.
+- [x] Validate the renamed first-load experience and save a new checkpoint.
+
 
 ## Preloader revision
 

@@ -1,4 +1,4 @@
-/* Queueless / Signal Cartography: persistent rail/dock keeps the city map one tap away. */
+/* Vaqo / Signal Cartography: persistent rail/dock keeps the city map one tap away. */
 import { Link, useLocation } from "wouter";
 import { BarChart3, Compass, Home, MapPinned, Plus, Route, UsersRound, UserRound, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -19,10 +19,10 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[246px] flex-col border-r border-white/[.08] bg-[#101611] lg:flex">
         <div className="flex items-center gap-3 px-7 py-7">
           <div className="relative flex h-9 w-9 items-center justify-center rounded-[12px] bg-[#1d9e75] p-1.5 shadow-[0_0_28px_rgba(29,158,117,.18)]">
-            <img src="/manus-storage/queueless-logo-mark_11995d16.png" alt="" className="h-full w-full object-contain" />
+            <img src="/manus-storage/vaqo-logo_1faf644c.png" alt="" className="h-full w-full object-contain" />
           </div>
           <div>
-            <p className="font-display text-[17px] font-bold tracking-[-.04em]">Queueless</p>
+            <p className="font-display text-[17px] font-bold tracking-[-.04em]">Vaqo</p>
             <p className="mt-0.5 text-[10px] uppercase tracking-[.17em] text-[#7f9185]">Know before you go</p>
           </div>
         </div>
@@ -53,8 +53,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       <header className="fixed left-0 right-0 top-0 z-30 flex h-[70px] items-center justify-between border-b border-white/[.08] bg-[#0e1210]/85 px-5 backdrop-blur-xl lg:left-[246px] lg:px-8">
         <div className="flex items-center gap-3 lg:hidden">
-          <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#1d9e75] p-1.5"><img src="/manus-storage/queueless-logo-mark_11995d16.png" alt="" className="h-full w-full object-contain" /></div>
-          <span className="font-display text-[16px] font-bold tracking-[-.04em]">Queueless</span>
+          <div className="flex h-8 w-8 items-center justify-center rounded-[10px] bg-[#1d9e75] p-1.5"><img src="/manus-storage/vaqo-logo_1faf644c.png" alt="" className="h-full w-full object-contain" /></div>
+          <span className="font-display text-[16px] font-bold tracking-[-.04em]">Vaqo</span>
         </div>
         <div className="hidden items-center gap-2 text-[12px] text-[#86958a] lg:flex"><Home size={14} /> <span className="text-[#cbd4ca]">Bengaluru</span> <span className="text-[#55635a]">/</span> <span>{isMap ? "Live map" : navItems.find((item) => location.startsWith(item.href))?.label ?? "Explore"}</span></div>
         <div className="ml-auto flex items-center gap-3">

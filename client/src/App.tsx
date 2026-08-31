@@ -1,10 +1,10 @@
-/* Queueless / Signal Cartography: one shared shell, one live signal context, many ways to decide. */
+/* Vaqo / Signal Cartography: one shared shell, one live signal context, many ways to decide. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AppShell from "./components/AppShell";
-import QueuelessPreloader from "./components/QueuelessPreloader";
+import VaqoPreloader from "./components/VaqoPreloader";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { QueueProvider } from "./contexts/QueueContext";
 import Home from "./pages/Home";
@@ -29,7 +29,7 @@ function Router() {
 }
 
 function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><QueuelessPreloader><Router /></QueuelessPreloader></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><VaqoPreloader><Router /></VaqoPreloader></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;
