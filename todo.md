@@ -2,6 +2,10 @@
 
 ## Preloader revision
 
+- [x] Replace the unstable stepped strips with stable center-opening stair panels.
+- [x] Keep the cover and reveal centered, mirrored, and glitch-free.
+- [x] Verify that the landing page becomes visible only after the panels clear the center.
+
 - [x] Slow the preloader sequence so the copy, cover, hold, and reveal are all readable.
 - [x] Rebuild the two stair panels with staggered heights and mirrored timing.
 - [x] Confirm the stair cover fully exits before the landing page becomes interactive.
