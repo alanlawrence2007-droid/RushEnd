@@ -2,6 +2,10 @@
 
 ## Preloader revision
 
+- [x] Show the preloader on every full page load instead of once per session.
+- [x] Keep the Queueless headline visible before the two stair panels animate away.
+- [x] Confirm the website appears only after the full preloader sequence finishes.
+
 - [x] Add a Queueless-branded Double stairs-style preloader before the landing page.
 - [x] Use the landing-page copy in the preloader and reveal the app only after the sequence completes.
 - [x] Respect reduced motion and provide a skip affordance.
