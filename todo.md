@@ -1,5 +1,12 @@
 # Vaqo build checklist
 
+## Intro video replacement
+
+- [x] Upload the newly supplied `rushend-intro.mp4` to persistent web storage.
+- [x] Replace the current intro source with the new video.
+- [x] Validate the replacement video and save a new checkpoint.
+
+
 ## Published intro visibility diagnosis
 
 - [x] Audit the public bundle and all conditions that can bypass the intro.

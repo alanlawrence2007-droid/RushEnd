@@ -1,31 +1,31 @@
-/* Vaqo / RushEnd intro: explicit first-paint logo stage, then a stable center split that reveals the live app. */
-import { useEffect, useState } from "react";
+/* Vaqo / Supplied intro video: the new RushEnd clip is the only first-load layer over the mounted landing page. */
+import { useRef, useState } from "react";
 
-type IntroPhase = "logo" | "reveal";
-const logoSrc = "/manus-storage/vaqo-logo_1faf644c.png";
+const introVideo = "/manus-storage/rushend-intro_a1bc0b8d.mp4";
 
 export default function VaqoIntroOverlay({ children }: { children: React.ReactNode }) {
-  const [phase, setPhase] = useState<IntroPhase>("logo");
+  const videoRef = useRef<HTMLVideoElement>(null);
   const [visible, setVisible] = useState(true);
+  const [fading, setFading] = useState(false);
+  const closingRef = useRef(false);
 
-  useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const revealAfter = reduced ? 650 : 4300;
-    const finishAfter = reduced ? 1100 : 6500;
-    const revealTimer = window.setTimeout(() => setPhase("reveal"), revealAfter);
-    const finishTimer = window.setTimeout(() => setVisible(false), finishAfter);
-    return () => {
-      window.clearTimeout(revealTimer);
-      window.clearTimeout(finishTimer);
-    };
-  }, []);
+  const closeIntro = () => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    setFading(true);
+    window.setTimeout(() => setVisible(false), 520);
+  };
+
+  const startVideo = () => {
+    videoRef.current?.play().catch(closeIntro);
+  };
 
   return <>
     {children}
-    {visible && <div id="intro-overlay" className={phase === "reveal" ? "is-reveal" : ""} aria-hidden="true">
-      <div className="intro-half" id="intro-left" />
-      <div className="intro-half" id="intro-right" />
-      <img id="intro-logo" src={logoSrc} alt="RushEnd" />
+    {visible && <div className={`vaqo-video-intro${fading ? " is-fading" : ""}`} role="presentation">
+      <video ref={videoRef} className="vaqo-video-intro__video" autoPlay muted playsInline preload="auto" onLoadedData={startVideo} onEnded={closeIntro} onError={closeIntro}>
+        <source src={introVideo} type="video/mp4" />
+      </video>
     </div>}
   </>;
 }
