@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AppShell from "./components/AppShell";
+import QueuelessPreloader from "./components/QueuelessPreloader";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { QueueProvider } from "./contexts/QueueContext";
 import Home from "./pages/Home";
@@ -28,7 +29,7 @@ function Router() {
 }
 
 function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><QueueProvider><TooltipProvider><Toaster theme="dark" /><Router /></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><QueuelessPreloader><Router /></QueuelessPreloader></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;

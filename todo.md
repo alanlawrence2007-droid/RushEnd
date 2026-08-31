@@ -1,5 +1,12 @@
 # Queueless build checklist
 
+## Preloader revision
+
+- [x] Add a Queueless-branded Double stairs-style preloader before the landing page.
+- [x] Use the landing-page copy in the preloader and reveal the app only after the sequence completes.
+- [x] Respect reduced motion and provide a skip affordance.
+- [x] Validate first load and save a new checkpoint.
+
 - [x] Wire the hero video element with a replaceable source and generated queue still fallback.
 - [x] Build the persistent desktop rail and mobile bottom navigation.
 - [x] Implement the live map canvas with crowd-coded pulsing locations, search, and filters.
