@@ -2,6 +2,10 @@
 
 ## Preloader revision
 
+- [x] Slow the preloader sequence so the copy, cover, hold, and reveal are all readable.
+- [x] Rebuild the two stair panels with staggered heights and mirrored timing.
+- [x] Confirm the stair cover fully exits before the landing page becomes interactive.
+
 - [x] Show the preloader on every full page load instead of once per session.
 - [x] Keep the Queueless headline visible before the two stair panels animate away.
 - [x] Confirm the website appears only after the full preloader sequence finishes.
