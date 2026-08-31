@@ -3,7 +3,7 @@ import { LocateFixed, Minus, Plus, RotateCcw } from "lucide-react";
 import { crowdMeta, userLocation, type QueueLocation } from "@/lib/queueData";
 import { cn } from "@/lib/utils";
 
-export default function MapSurface({ locations, selectedId, onSelect }: { locations: QueueLocation[]; selectedId?: string | null; onSelect: (location: QueueLocation) => void }) {
+export default function MapSurface({ locations, selectedId, areaLabel = "India", onSelect }: { locations: QueueLocation[]; selectedId?: string | null; areaLabel?: string; onSelect: (location: QueueLocation) => void }) {
   return <div className="map-texture relative min-h-[520px] flex-1 overflow-hidden border-y border-white/[.08] lg:min-h-[calc(100vh-70px)] lg:border-l">
     <div className="pointer-events-none absolute inset-0 opacity-70">
       <svg viewBox="0 0 1000 680" preserveAspectRatio="none" className="h-full w-full">
@@ -24,11 +24,12 @@ export default function MapSurface({ locations, selectedId, onSelect }: { locati
           {Array.from({ length: 13 }).map((_, index) => <path key={index} d={`M0 ${index * 58} H1000`} className="map-grid-line" opacity={index % 2 ? .35 : .2} />)}
         </g>
         <path d="M325 362 C380 295 446 300 518 355 S650 430 755 374" fill="none" stroke="#a43dff" strokeWidth="3" strokeLinecap="round" strokeDasharray="3 11" className="route-line" opacity=".7" />
+        <path d="M155 510 C270 425 380 480 462 430 S680 280 878 402" fill="none" stroke="#ff5cc8" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="2 14" opacity=".45" />
       </svg>
     </div>
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_45%_44%,transparent_0%,rgba(14,18,16,.05)_48%,rgba(14,18,16,.68)_100%)]" />
 
-    <div className="pointer-events-none absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/[.12] bg-[#0d090f]/80 px-3 py-2 text-[11px] text-[#a8b5aa] backdrop-blur"><span className="h-1.5 w-1.5 rounded-full bg-[#ff8a2b] shadow-[0_0_8px_rgba(255,138,43,.8)]" /> 7 places reporting now <span className="text-[#56635a]">·</span> <span className="metric">34</span> min avg wait</div>
+    <div className="pointer-events-none absolute left-5 top-5 z-10 flex items-center gap-2 rounded-full border border-white/[.12] bg-[#0d090f]/80 px-3 py-2 text-[11px] text-[#a8b5aa] backdrop-blur"><span className="h-1.5 w-1.5 rounded-full bg-[#ff8a2b] shadow-[0_0_8px_rgba(255,138,43,.8)]" /> {locations.length} places reporting in {areaLabel} <span className="text-[#56635a]">·</span> <span className="metric">{Math.round(locations.reduce((total, location) => total + location.wait, 0) / Math.max(locations.length, 1))}</span> min avg wait</div>
     <div className="absolute right-5 top-5 z-10 flex flex-col overflow-hidden rounded-xl border border-white/[.12] bg-[#0d090f]/80 backdrop-blur">
       {[Plus, Minus, RotateCcw].map((Icon, index) => <button key={index} aria-label={index === 0 ? "Zoom in" : index === 1 ? "Zoom out" : "Reset map"} className="flex h-9 w-9 items-center justify-center border-b border-white/[.08] text-[#8d9c91] last:border-b-0 hover:bg-white/[.06] hover:text-[#f3f3e8]"><Icon size={15} /></button>)}
     </div>

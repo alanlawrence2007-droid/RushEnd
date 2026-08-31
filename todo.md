@@ -1,5 +1,19 @@
 # Vaqo build checklist
 
+## India-first geography update
+
+- [x] Replace Bengaluru as the default map geography with India.
+- [x] Add state and district selectors with cascading options.
+- [x] Update the map surface, labels, signals, and queue summaries for the selected area.
+- [x] Validate default India view plus state and district selections; save a new checkpoint.
+
+
+## Requested rollback
+
+- [x] Roll back to checkpoint `f8aaa1d3`.
+- [x] Confirm the restored project state and live preview.
+
+
 ## Intro video sizing refinement
 
 - [x] Scale the intro video inside a centered viewport-safe frame without cropping.

@@ -150,3 +150,85 @@ export function getCrowdFromWait(wait: number): CrowdLevel {
   if (wait <= 30) return "moderate";
   return "heavy";
 }
+
+
+export type IndiaDistrict = { id: string; name: string };
+export type IndiaState = { id: string; name: string; kind: "State" | "Union Territory"; districts: IndiaDistrict[] };
+
+const districts = (names: string[]): IndiaDistrict[] => names.map((name) => ({ id: name.toLowerCase().replace(/[^a-z0-9]+/g, "-"), name }));
+
+export const indiaStates: IndiaState[] = [
+  { id: "andhra-pradesh", name: "Andhra Pradesh", kind: "State", districts: districts(["Visakhapatnam", "Vijayawada", "Tirupati"]) },
+  { id: "arunachal-pradesh", name: "Arunachal Pradesh", kind: "State", districts: districts(["Itanagar", "Tawang", "Pasighat"]) },
+  { id: "assam", name: "Assam", kind: "State", districts: districts(["Guwahati", "Dibrugarh", "Jorhat"]) },
+  { id: "bihar", name: "Bihar", kind: "State", districts: districts(["Patna", "Gaya", "Muzaffarpur"]) },
+  { id: "chhattisgarh", name: "Chhattisgarh", kind: "State", districts: districts(["Raipur", "Bilaspur", "Durg"]) },
+  { id: "goa", name: "Goa", kind: "State", districts: districts(["North Goa", "South Goa"]) },
+  { id: "gujarat", name: "Gujarat", kind: "State", districts: districts(["Ahmedabad", "Surat", "Vadodara"]) },
+  { id: "haryana", name: "Haryana", kind: "State", districts: districts(["Gurugram", "Faridabad", "Panipat"]) },
+  { id: "himachal-pradesh", name: "Himachal Pradesh", kind: "State", districts: districts(["Shimla", "Kangra", "Kullu"]) },
+  { id: "jharkhand", name: "Jharkhand", kind: "State", districts: districts(["Ranchi", "East Singhbhum", "Dhanbad"]) },
+  { id: "karnataka", name: "Karnataka", kind: "State", districts: districts(["Bengaluru Urban", "Mysuru", "Dakshina Kannada"]) },
+  { id: "kerala", name: "Kerala", kind: "State", districts: districts(["Ernakulam", "Thiruvananthapuram", "Kozhikode"]) },
+  { id: "madhya-pradesh", name: "Madhya Pradesh", kind: "State", districts: districts(["Bhopal", "Indore", "Gwalior"]) },
+  { id: "maharashtra", name: "Maharashtra", kind: "State", districts: districts(["Mumbai Suburban", "Pune", "Nagpur"]) },
+  { id: "manipur", name: "Manipur", kind: "State", districts: districts(["Imphal East", "Imphal West", "Churachandpur"]) },
+  { id: "meghalaya", name: "Meghalaya", kind: "State", districts: districts(["East Khasi Hills", "Ri Bhoi", "West Garo Hills"]) },
+  { id: "mizoram", name: "Mizoram", kind: "State", districts: districts(["Aizawl", "Lunglei", "Champhai"]) },
+  { id: "nagaland", name: "Nagaland", kind: "State", districts: districts(["Kohima", "Dimapur", "Mokokchung"]) },
+  { id: "odisha", name: "Odisha", kind: "State", districts: districts(["Khordha", "Cuttack", "Ganjam"]) },
+  { id: "punjab", name: "Punjab", kind: "State", districts: districts(["Ludhiana", "Amritsar", "Jalandhar"]) },
+  { id: "rajasthan", name: "Rajasthan", kind: "State", districts: districts(["Jaipur", "Jodhpur", "Udaipur"]) },
+  { id: "sikkim", name: "Sikkim", kind: "State", districts: districts(["Gangtok", "Namchi", "Mangan"]) },
+  { id: "tamil-nadu", name: "Tamil Nadu", kind: "State", districts: districts(["Chennai", "Coimbatore", "Madurai"]) },
+  { id: "telangana", name: "Telangana", kind: "State", districts: districts(["Hyderabad", "Rangareddy", "Warangal"]) },
+  { id: "tripura", name: "Tripura", kind: "State", districts: districts(["West Tripura", "Gomati", "North Tripura"]) },
+  { id: "uttar-pradesh", name: "Uttar Pradesh", kind: "State", districts: districts(["Lucknow", "Kanpur Nagar", "Varanasi"]) },
+  { id: "uttarakhand", name: "Uttarakhand", kind: "State", districts: districts(["Dehradun", "Haridwar", "Nainital"]) },
+  { id: "west-bengal", name: "West Bengal", kind: "State", districts: districts(["Kolkata", "North 24 Parganas", "Darjeeling"]) },
+  { id: "andaman-and-nicobar-islands", name: "Andaman and Nicobar Islands", kind: "Union Territory", districts: districts(["South Andaman", "North and Middle Andaman", "Nicobar"]) },
+  { id: "chandigarh", name: "Chandigarh", kind: "Union Territory", districts: districts(["Chandigarh"]) },
+  { id: "dadra-and-nagar-haveli-and-daman-and-diu", name: "Dadra and Nagar Haveli and Daman and Diu", kind: "Union Territory", districts: districts(["Dadra and Nagar Haveli", "Daman", "Diu"]) },
+  { id: "delhi", name: "Delhi", kind: "Union Territory", districts: districts(["Central Delhi", "South Delhi", "New Delhi"]) },
+  { id: "jammu-and-kashmir", name: "Jammu and Kashmir", kind: "Union Territory", districts: districts(["Jammu", "Srinagar", "Anantnag"]) },
+  { id: "ladakh", name: "Ladakh", kind: "Union Territory", districts: districts(["Leh", "Kargil"]) },
+  { id: "lakshadweep", name: "Lakshadweep", kind: "Union Territory", districts: districts(["Kavaratti", "Agatti", "Andrott"]) },
+  { id: "puducherry", name: "Puducherry", kind: "Union Territory", districts: districts(["Puducherry", "Karaikal", "Mahe"]) },
+];
+
+export function getIndiaState(stateId: string) {
+  return indiaStates.find((state) => state.id === stateId);
+}
+
+export function getAreaLabel(stateId: string, districtId: string) {
+  if (stateId === "india") return "India";
+  const state = getIndiaState(stateId);
+  const district = state?.districts.find((item) => item.id === districtId);
+  return district && state ? `${district.name}, ${state.name}` : state?.name ?? "India";
+}
+
+function scopeSeed(stateId: string, districtId: string) {
+  return `${stateId}:${districtId}`.split("").reduce((total, character) => total + character.charCodeAt(0), 0);
+}
+
+export function getLocationsForArea(locations: QueueLocation[], stateId: string, districtId: string) {
+  const state = getIndiaState(stateId);
+  const district = state?.districts.find((item) => item.id === districtId);
+  const areaName = district?.name ?? state?.name ?? "India";
+  const seed = scopeSeed(stateId, districtId);
+  return locations.map((location, index) => {
+    const leftOffset = ((seed + index * 17) % 15) - 7;
+    const topOffset = ((seed + index * 11) % 13) - 6;
+    const areaNeighborhood = stateId === "india" ? `National signal · ${location.category}` : `${areaName} · ${location.category}`;
+    const areaNamePrefix = stateId === "india" ? "" : `${areaName} `;
+    return {
+      ...location,
+      name: stateId === "india" ? location.name : `${areaNamePrefix}${location.name}`,
+      neighborhood: areaNeighborhood,
+      position: {
+        left: Math.max(10, Math.min(90, location.position.left + leftOffset)),
+        top: Math.max(13, Math.min(84, location.position.top + topOffset)),
+      },
+    };
+  });
+}

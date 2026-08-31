@@ -56,7 +56,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           <div className="logo-crop logo-crop--mobile"><img src="/manus-storage/vaqo-logo_1faf644c.png" alt="Vaqo mark" className="logo-crop__image" /></div>
           <span className="font-display text-[16px] font-bold tracking-[-.04em]">Vaqo</span>
         </div>
-        <div className="hidden items-center gap-2 text-[12px] text-[#86958a] lg:flex"><Home size={14} /> <span className="text-[#cbd4ca]">Bengaluru</span> <span className="text-[#55635a]">/</span> <span>{isMap ? "Live map" : navItems.find((item) => location.startsWith(item.href))?.label ?? "Explore"}</span></div>
+        <div className="hidden items-center gap-2 text-[12px] text-[#86958a] lg:flex"><Home size={14} /> <span className="text-[#cbd4ca]">India</span> <span className="text-[#55635a]">/</span> <span>{isMap ? "Live map" : navItems.find((item) => location.startsWith(item.href))?.label ?? "Explore"}</span></div>
         <div className="ml-auto flex items-center gap-3">
           <div className="hidden items-center gap-2 rounded-full border border-[#ff8a2b]/20 bg-[#ff8a2b]/[.06] px-3 py-1.5 text-[11px] text-[#ffbd4a] sm:flex"><span className="h-1.5 w-1.5 rounded-full bg-[#ff8a2b] shadow-[0_0_8px_rgba(255,138,43,.8)]" /> Live data</div>
           <button aria-label="Your current location" className="flex h-9 w-9 items-center justify-center rounded-full border border-white/[.12] bg-white/[.04] text-[#a43dff] transition hover:border-[#a43dff]/50 hover:bg-[#a43dff]/10"><MapPinned size={16} /></button>
