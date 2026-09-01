@@ -5,6 +5,7 @@ export type LocationCategory = "Hospitals" | "Banks" | "Government" | "Temples" 
 
 export type QueueLocation = {
   id: string;
+  queueId?: string;
   name: string;
   neighborhood: string;
   category: LocationCategory;

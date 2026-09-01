@@ -7,6 +7,7 @@ import AppShell from "./components/AppShell";
 import RushEndIntroOverlay from "./components/RushEndIntroOverlay";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { QueueProvider } from "./contexts/QueueContext";
+import { RushEndAuthProvider } from "./contexts/RushEndAuthContext";
 import Home from "./pages/Home";
 import PlanPage from "./pages/PlanPage";
 import DiscoverPage from "./pages/DiscoverPage";
@@ -14,6 +15,9 @@ import CommunityPage from "./pages/CommunityPage";
 import ProfilePage from "./pages/ProfilePage";
 import LocationPage from "./pages/LocationPage";
 import NotFound from "./pages/NotFound";
+import AuthPage from "./pages/AuthPage";
+import LiveStatusPage from "./pages/LiveStatusPage";
+import StaffDashboardPage from "./pages/StaffDashboardPage";
 
 function Router() {
   const basePath = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -24,13 +28,16 @@ function Router() {
     <Route path="/community" component={CommunityPage} />
     <Route path="/profile" component={ProfilePage} />
     <Route path="/location/:id" component={LocationPage} />
+    <Route path="/auth" component={AuthPage} />
+    <Route path="/status/:id" component={LiveStatusPage} />
+    <Route path="/staff" component={StaffDashboardPage} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
   </Switch></AppShell></WouterRouter>;
 }
 
 function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><RushEndIntroOverlay><Router /></RushEndIntroOverlay></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark"><RushEndAuthProvider><QueueProvider><TooltipProvider><Toaster theme="dark" /><RushEndIntroOverlay><Router /></RushEndIntroOverlay></TooltipProvider></QueueProvider></RushEndAuthProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;
