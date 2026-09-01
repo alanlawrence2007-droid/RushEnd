@@ -16,7 +16,7 @@ import LocationPage from "./pages/LocationPage";
 import NotFound from "./pages/NotFound";
 
 function Router() {
-  const basePath = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+  const basePath = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
   return <WouterRouter base={basePath}><AppShell><Switch>
     <Route path="/" component={Home} />
     <Route path="/plan" component={PlanPage} />
