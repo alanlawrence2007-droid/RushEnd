@@ -1,6 +1,6 @@
 /* RushEnd / Signal Cartography: a location opens as a verdict-led drawer, not a passive data card. */
 import { ArrowUpRight, Check, Clock3, LogIn, LogOut, MessageSquareWarning, Radio, Users } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { crowdMeta, type QueueLocation } from "@/lib/queueData";
 import { useQueue } from "@/contexts/QueueContext";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,7 @@ function QueuePeople({ count, level }: { count: number; level: QueueLocation["cr
 
 export default function LocationDetail({ location, onClose }: { location: QueueLocation; onClose: () => void }) {
   const { checkIn, checkOut, checkedIn } = useQueue();
+  const [, navigate] = useLocation();
   const meta = crowdMeta[location.crowd];
   const isCheckedIn = checkedIn.has(location.id);
   const isGoNow = location.crowd === "low";
@@ -57,7 +58,7 @@ export default function LocationDetail({ location, onClose }: { location: QueueL
         <div><div className="mb-3 flex items-center justify-between"><p className="eyebrow">Today's pattern</p><span className="flex items-center gap-1 text-[10px] text-[#7d8c81]"><ArrowUpRight size={12} /> typical Tuesday</span></div><MiniChart points={location.trend} color={meta.color} /><Link href={`/location/${location.id}`} className="mt-2 flex items-center justify-between rounded-lg px-1 py-2 text-[11px] font-semibold text-[#8dcfb0] hover:text-[#c0efd4]"><span>See how this place behaves over time</span><ArrowUpRight size={13} /></Link></div>
 
         <div className="space-y-2">
-          {!isCheckedIn ? <Button onClick={() => checkIn(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#a43dff] text-[13px] font-semibold text-[#06101b] shadow-[0_8px_25px_rgba(164,61,255,.18)] hover:bg-[#65a6ee]"><LogIn size={16} /> I'm here — check in</Button> : <Button onClick={() => checkOut(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#ff8a2b] text-[13px] font-semibold text-[#160b05] shadow-[0_8px_25px_rgba(255,138,43,.18)] hover:bg-[#ffbd4a]"><Check size={16} /> Checked in · Just finished? Check out</Button>}
+          {!isCheckedIn ? <Button onClick={async () => { const tokenId = await checkIn(location.id); navigate(`/status/${tokenId}`); }} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#a43dff] text-[13px] font-semibold text-[#06101b] shadow-[0_8px_25px_rgba(164,61,255,.18)] hover:bg-[#65a6ee]"><LogIn size={16} /> Join queue remotely</Button> : <Button onClick={() => checkOut(location.id)} className="h-11 w-full justify-center gap-2 rounded-xl bg-[#ff8a2b] text-[13px] font-semibold text-[#160b05] shadow-[0_8px_25px_rgba(255,138,43,.18)] hover:bg-[#ffbd4a]"><Check size={16} /> Checked in · Just finished? Check out</Button>}
           <button className="flex w-full items-center justify-center gap-2 py-2 text-[11px] text-[#7d8b81] hover:text-[#d1ddd2]"><MessageSquareWarning size={13} /> This looks wrong</button>
         </div>
         <div className="flex items-center gap-2 border-t border-white/[.08] pt-4 text-[10px] leading-4 text-[#66756b]"><LogOut size={13} /> Checking in helps your city make a better call next time.</div>

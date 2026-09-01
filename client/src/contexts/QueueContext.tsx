@@ -7,7 +7,7 @@ type QueueContextValue = {
   locations: QueueLocation[];
   selectedLocation: QueueLocation | null;
   selectLocation: (id: string | null) => void;
-  checkIn: (id: string) => Promise<void>;
+  checkIn: (id: string) => Promise<string>;
   checkOut: (id: string) => Promise<void>;
   checkedIn: Set<string>;
   activeTokens: Record<string, Token>;
@@ -86,6 +86,7 @@ export function QueueProvider({ children }: { children: ReactNode }) {
       setCheckedIn((current) => new Set(current).add(id));
       setActiveTokens((current) => ({ ...current, [id]: result.token }));
       setLastPulse(new Date().toISOString());
+      return result.token.id;
     },
     checkOut: async (id) => {
       const token = activeTokens[id];
