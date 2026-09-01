@@ -138,7 +138,7 @@
 
 ## GitHub repository connection
 
-- [ ] Inspect current Git remote, branch, working tree, and authenticated GitHub account.
-- [ ] Prepare the complete RushEnd source and documentation for repository export.
-- [ ] Create or connect a private GitHub repository and push the app.
-- [ ] Verify the remote repository contents, visibility, and latest commit.
+- [x] Inspect current Git remote, branch, working tree, and authenticated GitHub account.
+- [x] Prepare the complete RushEnd source and documentation for repository export.
+- [x] Create or connect a private GitHub repository and push the app.
+- [x] Verify the remote repository contents, visibility, and latest commit.
