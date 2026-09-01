@@ -2,7 +2,8 @@
 import { useRef, useState } from "react";
 import { assetPath } from "@/lib/sitePaths";
 
-const introVideo = assetPath("assets/rushend-intro.mp4");
+const introVideo = assetPath("assets/rushend-intro-with-landing.mp4");
+const landingRevealLeadSeconds = 1.15;
 
 export default function RushEndIntroOverlay({ children }: { children: React.ReactNode }) {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,10 +22,17 @@ export default function RushEndIntroOverlay({ children }: { children: React.Reac
     videoRef.current?.play().catch(closeIntro);
   };
 
+  const handleTimeUpdate = (event: React.SyntheticEvent<HTMLVideoElement>) => {
+    const video = event.currentTarget;
+    if (video.duration && video.currentTime >= video.duration - landingRevealLeadSeconds) {
+      closeIntro();
+    }
+  };
+
   return <>
     {children}
     {visible && <div className={`rushend-video-intro${fading ? " is-fading" : ""}`} role="presentation">
-      <video ref={videoRef} className="rushend-video-intro__video" autoPlay muted playsInline preload="auto" onLoadedData={startVideo} onEnded={closeIntro} onError={closeIntro}>
+      <video ref={videoRef} className="rushend-video-intro__video" autoPlay muted playsInline preload="auto" onLoadedData={startVideo} onTimeUpdate={handleTimeUpdate} onEnded={closeIntro} onError={closeIntro}>
         <source src={introVideo} type="video/mp4" />
       </video>
     </div>}
