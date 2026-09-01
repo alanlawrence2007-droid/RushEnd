@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: errors stay useful and point back to the city map. */
+/* RushEnd / Signal Cartography: errors stay useful and point back to the city map. */
 import { ArrowLeft, MapPinned } from "lucide-react";
 import { Link } from "wouter";
 

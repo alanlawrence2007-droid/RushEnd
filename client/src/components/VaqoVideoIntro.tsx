@@ -1,9 +1,9 @@
-/* Vaqo / Signal Cartography: the supplied intro video is the only first-load layer over the live app. */
+/* RushEnd / Signal Cartography: the supplied intro video is the only first-load layer over the live app. */
 import { useRef, useState } from "react";
 
 const introVideo = "/manus-storage/rushend-logo-intro_73324bfa.mp4";
 
-export default function VaqoVideoIntro({ children }: { children: React.ReactNode }) {
+export default function RushEndVideoIntro({ children }: { children: React.ReactNode }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [showVideo, setShowVideo] = useState(true);
   const [fading, setFading] = useState(false);
@@ -30,11 +30,11 @@ export default function VaqoVideoIntro({ children }: { children: React.ReactNode
 
   return <>
     {children}
-    {showVideo && <div className={`vaqo-video-intro${fading ? " is-fading" : ""}`} role="dialog" aria-modal="true" aria-label="Vaqo introduction">
-      <video ref={videoRef} className="vaqo-video-intro__video" autoPlay muted playsInline preload="auto" onLoadedData={handleLoaded} onTimeUpdate={handleTimeUpdate} onEnded={closeVideo} onError={closeVideo}>
+    {showVideo && <div className={`rushend-video-intro${fading ? " is-fading" : ""}`} role="dialog" aria-modal="true" aria-label="RushEnd introduction">
+      <video ref={videoRef} className="rushend-video-intro__video" autoPlay muted playsInline preload="auto" onLoadedData={handleLoaded} onTimeUpdate={handleTimeUpdate} onEnded={closeVideo} onError={closeVideo}>
         <source src={introVideo} type="video/mp4" />
       </video>
-      <button type="button" className="vaqo-video-intro__skip" onClick={closeVideo}>Skip <span aria-hidden="true">→</span></button>
+      <button type="button" className="rushend-video-intro__skip" onClick={closeVideo}>Skip <span aria-hidden="true">→</span></button>
     </div>}
   </>;
 }

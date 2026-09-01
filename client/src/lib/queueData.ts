@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: shared civic data types and realistic demo locations. */
+/* RushEnd / Signal Cartography: shared civic data types and realistic demo locations. */
 
 export type CrowdLevel = "low" | "moderate" | "heavy";
 export type LocationCategory = "Hospitals" | "Banks" | "Government" | "Temples" | "Canteens" | "Railway" | "Restaurants";

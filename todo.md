@@ -1,4 +1,20 @@
-# Vaqo build checklist
+# RushEnd build checklist
+
+## Portable AI handoff package
+
+- [x] Inventory frontend source, configuration, assets, routes, and current project state.
+- [x] Write an AI-readable handoff guide with architecture, design system, data model, and editing instructions.
+- [x] Package the complete project source with the handoff guide and asset manifest.
+- [x] Verify the archive contents and deliver the package.
+
+
+## RushEnd rebrand and contrast review
+
+- [x] Replace visible Vaqo names with RushEnd across the frontend and metadata.
+- [x] Update brand-specific intro and shell labels without changing the supplied video asset.
+- [x] Verify the dark landing page remains readable and not unintentionally dim.
+- [x] Save a new checkpoint for the RushEnd rebrand.
+
 
 ## India-first geography update
 
@@ -119,3 +135,10 @@
 - [x] Add accessible focus states, reduced-motion behavior, and responsive bottom-sheet detail view.
 - [x] Run typecheck/build and capture representative desktop/mobile screenshots.
 - [ ] Create the final checkpoint for delivery.
+
+## GitHub repository connection
+
+- [ ] Inspect current Git remote, branch, working tree, and authenticated GitHub account.
+- [ ] Prepare the complete RushEnd source and documentation for repository export.
+- [ ] Create or connect a private GitHub repository and push the app.
+- [ ] Verify the remote repository contents, visibility, and latest commit.

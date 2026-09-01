@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: personal activity makes a city signal feel reciprocal and useful. */
+/* RushEnd / Signal Cartography: personal activity makes a city signal feel reciprocal and useful. */
 import { ArrowRight, Bookmark, Check, Clock3, MapPin, Settings2, Sparkles, TrendingDown, UserRound } from "lucide-react";
 import { Link } from "wouter";
 import { useQueue } from "@/contexts/QueueContext";

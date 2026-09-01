@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: historical behavior is drawn as a calm operating picture, not a spreadsheet. */
+/* RushEnd / Signal Cartography: historical behavior is drawn as a calm operating picture, not a spreadsheet. */
 import { ArrowLeft, ArrowRight, CalendarDays, CheckCircle2, Clock3, Info, TrendingUp } from "lucide-react";
 import { Link, useRoute } from "wouter";
 import { useQueue } from "@/contexts/QueueContext";

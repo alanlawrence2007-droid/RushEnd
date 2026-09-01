@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: errands become an ordered route, with time saved as the headline metric. */
+/* RushEnd / Signal Cartography: errands become an ordered route, with time saved as the headline metric. */
 import { useMemo, useState } from "react";
 import { ArrowRight, Check, Clock3, MapPin, Plus, Sparkles, Trash2 } from "lucide-react";
 import { Link } from "wouter";

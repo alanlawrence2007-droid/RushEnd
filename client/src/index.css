@@ -3,7 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Vaqo / Signal Cartography: near-black terrain, civic signal colors, and motion that maps to live data. */
+/* RushEnd / Signal Cartography: near-black terrain, civic signal colors, and motion that maps to live data. */
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -157,8 +157,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
 @media (min-width: 1024px) { .container { max-width: 1280px; padding: 0 2rem; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 
-/* Vaqo / Supplied intro video: only the new RushEnd clip sits above the mounted landing page. */
-.vaqo-video-intro {
+/* RushEnd / Supplied intro video: only the new RushEnd clip sits above the mounted landing page. */
+.rushend-video-intro {
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -169,8 +169,8 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   opacity: 1;
   transition: opacity .52s var(--ease-out);
 }
-.vaqo-video-intro.is-fading { opacity: 0; }
-.vaqo-video-intro__video {
+.rushend-video-intro.is-fading { opacity: 0; }
+.rushend-video-intro__video {
   display: block;
   width: min(78vw, 860px);
   height: min(78vh, 660px);
@@ -181,10 +181,10 @@ button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid 
   border-radius: 18px;
 }
 @media (prefers-reduced-motion: reduce) {
-  .vaqo-video-intro { transition: none; }
+  .rushend-video-intro { transition: none; }
 }
 
-/* Vaqo / Navigation mark: the rail uses the supplied square logo as a deliberate crop so the full R symbol reads at a glance. */
+/* RushEnd / Navigation mark: the rail uses the supplied square logo as a deliberate crop so the full R symbol reads at a glance. */
 .logo-crop {
   position: relative;
   flex: 0 0 auto;

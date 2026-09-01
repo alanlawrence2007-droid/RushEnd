@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: a location opens as a verdict-led drawer, not a passive data card. */
+/* RushEnd / Signal Cartography: a location opens as a verdict-led drawer, not a passive data card. */
 import { ArrowUpRight, Check, Clock3, LogIn, LogOut, MessageSquareWarning, Radio, Users } from "lucide-react";
 import { Link } from "wouter";
 import { crowdMeta, type QueueLocation } from "@/lib/queueData";

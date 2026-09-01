@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: India is the default living map, with state and district views layered into the same civic canvas. */
+/* RushEnd / Signal Cartography: India is the default living map, with state and district views layered into the same civic canvas. */
 import { useMemo, useRef, useState } from "react";
 import { ArrowDownRight, ArrowRight, Search, Sparkles } from "lucide-react";
 import { Link } from "wouter";
@@ -52,7 +52,7 @@ export default function Home() {
         <div className="max-w-[670px]">
           <div className="hero-reveal inline-flex items-center gap-2 rounded-full border border-[#ff8a2b]/25 bg-[#0d090f]/45 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[.16em] text-[#ffbd4a] backdrop-blur"><Sparkles size={12} /> A living India map · {areaLabel}</div>
           <h1 className="hero-reveal hero-reveal-delay-1 mt-5 max-w-[660px] font-display text-[45px] font-semibold leading-[.98] tracking-[-.065em] text-[#f3f3e8] sm:text-[62px] lg:text-[72px]">Every queue in India, <span className="text-[#ffbd4a]">right now.</span></h1>
-          <p className="hero-reveal hero-reveal-delay-2 mt-5 max-w-[430px] text-[16px] leading-6 text-[#c0cbc1]">Choose a state or district before you leave. Vaqo shows the signal where it matters.</p>
+          <p className="hero-reveal hero-reveal-delay-2 mt-5 max-w-[430px] text-[16px] leading-6 text-[#c0cbc1]">Choose a state or district before you leave. RushEnd shows the signal where it matters.</p>
           <div className="hero-reveal hero-reveal-delay-3 mt-8 flex flex-wrap items-center gap-3"><button onClick={scrollToMap} className="group flex items-center gap-3 rounded-xl bg-[#f3f3e8] px-4 py-3 text-[13px] font-semibold text-[#0d090f] transition hover:bg-[#dbe8de] active:scale-[.97]">Explore India <ArrowDownRight size={16} className="transition group-hover:translate-y-0.5 group-hover:translate-x-0.5" /></button><Link href="/plan" className="flex items-center gap-2 rounded-xl border border-white/[.18] bg-[#0d090f]/40 px-4 py-3 text-[13px] font-semibold text-[#e7eee7] backdrop-blur transition hover:border-white/[.35] hover:bg-white/[.08]">Plan my day <ArrowRight size={15} /></Link></div>
           <div className="hero-reveal hero-reveal-delay-3 mt-7 max-w-[520px] rounded-2xl border border-white/[.14] bg-[#0d090f]/68 p-3 backdrop-blur-xl">
             <div className="flex items-center justify-between gap-3"><div><p className="eyebrow">Choose your map</p><p className="mt-1 text-[11px] text-[#96a49a]">India is shown by default</p></div><span className="metric text-[18px] text-[#ffbd4a]">{areaLocations.length}</span></div>

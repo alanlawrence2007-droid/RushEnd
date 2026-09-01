@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: community contributions extend the map into places no app tracks yet. */
+/* RushEnd / Signal Cartography: community contributions extend the map into places no app tracks yet. */
 import { useState } from "react";
 import { Camera, Check, ChevronRight, MapPin, Plus, ThumbsUp, Upload, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";

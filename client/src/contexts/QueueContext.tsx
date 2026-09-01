@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: live counts are the interface's only source of motion. */
+/* RushEnd / Signal Cartography: live counts are the interface's only source of motion. */
 import { createContext, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
 import { getCrowdFromWait, initialLocations, type QueueLocation } from "@/lib/queueData";
 

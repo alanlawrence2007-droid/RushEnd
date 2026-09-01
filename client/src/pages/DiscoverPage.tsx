@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: reverse discovery turns an open hour into a calm nearby option. */
+/* RushEnd / Signal Cartography: reverse discovery turns an open hour into a calm nearby option. */
 import { useMemo, useState } from "react";
 import { ArrowRight, Clock3, LocateFixed, SlidersHorizontal } from "lucide-react";
 import { Link } from "wouter";

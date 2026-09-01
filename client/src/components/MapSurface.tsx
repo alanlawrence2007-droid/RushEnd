@@ -1,4 +1,4 @@
-/* Vaqo / Signal Cartography: the map surface is a living civic canvas, not a dashboard background. */
+/* RushEnd / Signal Cartography: the map surface is a living civic canvas, not a dashboard background. */
 import { LocateFixed, Minus, Plus, RotateCcw } from "lucide-react";
 import { crowdMeta, userLocation, type QueueLocation } from "@/lib/queueData";
 import { cn } from "@/lib/utils";

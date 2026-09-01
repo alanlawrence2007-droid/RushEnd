@@ -1,10 +1,10 @@
-/* Vaqo / Signal Cartography: one shared shell, one live signal context, many ways to decide. */
+/* RushEnd / Signal Cartography: one shared shell, one live signal context, many ways to decide. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AppShell from "./components/AppShell";
-import VaqoIntroOverlay from "./components/VaqoIntroOverlay";
+import RushEndIntroOverlay from "./components/RushEndIntroOverlay";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { QueueProvider } from "./contexts/QueueContext";
 import Home from "./pages/Home";
@@ -29,7 +29,7 @@ function Router() {
 }
 
 function App() {
-  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><VaqoIntroOverlay><Router /></VaqoIntroOverlay></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
+  return <ErrorBoundary><ThemeProvider defaultTheme="dark">      <QueueProvider><TooltipProvider><Toaster theme="dark" /><RushEndIntroOverlay><Router /></RushEndIntroOverlay></TooltipProvider></QueueProvider></ThemeProvider></ErrorBoundary>;
 }
 
 export default App;
