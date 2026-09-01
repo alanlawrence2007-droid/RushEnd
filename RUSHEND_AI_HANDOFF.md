@@ -6,7 +6,7 @@
 
 RushEnd is a frontend-only queue-intelligence webapp for people who want to know how busy a place is before they travel. The landing experience is India-first: India is the default geography, and users can narrow the view by State/Union Territory and then District. The application is a static React experience with simulated live queue data; it is not yet connected to a production database, geolocation service, or live maps API.
 
-The visible brand name is **RushEnd**. The original package name remains `queueless` for project compatibility. Do not rename the package unless the hosting configuration is intentionally migrated as well.
+The visible brand name is **RushEnd**, and the package metadata now uses `rushend`.
 
 ## 2. Visual direction
 
@@ -31,7 +31,7 @@ The runtime starts at `client/src/main.tsx`, which mounts `client/src/App.tsx`. 
 | Intro | `client/src/components/RushEndIntroOverlay.tsx` | Supplied intro video over the mounted app. |
 | Global styles | `client/src/index.css` | Tokens, typography helpers, map texture, responsive rules, and intro-video styling. |
 
-The legacy `client/src/components/VaqoVideoIntro.tsx` file may remain in the source tree as an unused historical component. The active overlay is `RushEndIntroOverlay.tsx`.
+The legacy `client/src/components/RushEndVideoIntro.tsx` file may remain in the source tree as an unused historical component. The active overlay is `RushEndIntroOverlay.tsx`.
 
 ## 4. Routes
 

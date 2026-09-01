@@ -10,7 +10,7 @@
 
 ## RushEnd rebrand and contrast review
 
-- [x] Replace visible Vaqo names with RushEnd across the frontend and metadata.
+- [x] Replace visible legacy brand names with RushEnd across the frontend and metadata.
 - [x] Update brand-specific intro and shell labels without changing the supplied video asset.
 - [x] Verify the dark landing page remains readable and not unintentionally dim.
 - [x] Save a new checkpoint for the RushEnd rebrand.
@@ -63,7 +63,7 @@
 
 - [x] Rebuild the supplied six-second black-half overlay choreography in React/CSS.
 - [x] Complete the missing runtime so the overlay reliably starts and hides after the reveal.
-- [x] Keep the Vaqo landing page mounted underneath with no white flash.
+- [x] Keep the RushEnd landing page mounted underneath with no white flash.
 - [x] Validate desktop/mobile behavior and save a new checkpoint.
 
 
@@ -77,7 +77,7 @@
 ## Supplied video intro and palette cleanup
 
 - [x] Upload and wire `rushend-logo-intro.mp4` as the only intro layer.
-- [x] Remove the custom Vaqo preloader component from the app tree.
+- [x] Remove the custom RushEnd preloader component from the app tree.
 - [x] Ensure the landing page is visible behind the video instead of a blank/white screen.
 - [x] Remove remaining green text and accents in favor of the supplied logo palette.
 - [x] Validate video fallback, transition, and responsive rendering; save a new checkpoint.
@@ -93,16 +93,16 @@
 
 ## Timing and palette revision
 
-- [x] Keep the Vaqo preloader visible for at least five seconds before the reveal.
+- [x] Keep the RushEnd preloader visible for at least five seconds before the reveal.
 - [x] Re-theme the web app around logo-inspired greens with orange, pink, and violet highlights.
 - [x] Verify contrast and responsive rendering after the palette change.
 - [ ] Save a new checkpoint for the revision.
 
 
-## Vaqo rebrand and preloader revision
+## RushEnd rebrand and preloader revision
 
-- [x] Upload and wire the user-provided Vaqo logo as the brand mark and favicon.
-- [x] Replace Queueless naming with Vaqo across the visible app chrome and metadata.
+- [x] Upload and wire the user-provided RushEnd logo as the brand mark and favicon.
+- [x] Replace legacy branding with RushEnd across the visible app chrome and metadata.
 - [x] Rebuild the first-load sequence as black screen → centered logo fade → smooth left/right center-split reveal.
 - [x] Validate the renamed first-load experience and save a new checkpoint.
 
@@ -118,10 +118,10 @@
 - [x] Confirm the stair cover fully exits before the landing page becomes interactive.
 
 - [x] Show the preloader on every full page load instead of once per session.
-- [x] Keep the Queueless headline visible before the two stair panels animate away.
+- [x] Keep the RushEnd headline visible before the two stair panels animate away.
 - [x] Confirm the website appears only after the full preloader sequence finishes.
 
-- [x] Add a Queueless-branded Double stairs-style preloader before the landing page.
+- [x] Add a RushEnd-branded Double stairs-style preloader before the landing page.
 - [x] Use the landing-page copy in the preloader and reveal the app only after the sequence completes.
 - [x] Respect reduced motion and provide a skip affordance.
 - [x] Validate first load and save a new checkpoint.

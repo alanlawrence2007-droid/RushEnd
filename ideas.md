@@ -1,4 +1,4 @@
-# Queueless design brainstorm
+# RushEnd design brainstorm
 
 ## Three stylistic approaches
 
@@ -46,7 +46,7 @@ Entrance layers use subtle upward fades and clipped reveals. Map dots breathe on
 Headlines use **Space Grotesk** at 600–700 with tight tracking and occasional sentence-case emphasis. Body and interface copy use **Work Sans** at 400–600 for warmth and clarity. Metrics use Work Sans with `font-variant-numeric: tabular-nums`, slightly larger and heavier than labels. Hierarchy: 11px uppercase eyebrow, 13px utility, 15px body, 18–24px section heads, 42–72px hero display.
 
 ### Brand Essence
-**Queueless is a live city-wide waiting compass for people who would rather arrive at the right time than stand around.** Personality: observant, dry-witted, civic-minded.
+**RushEnd is a live city-wide waiting compass for people who would rather arrive at the right time than stand around.** Personality: observant, dry-witted, civic-minded.
 
 ### Brand Voice
 Headlines are direct and specific. CTAs sound like a smart friend making the next move obvious. Microcopy is concise, useful, and lightly dry; never corporate.
@@ -66,7 +66,7 @@ A custom lowercase wordmark set in Space Grotesk with the “q” tail extended 
 - Keep crowd status strictly teal / amber / coral; never introduce a fourth status color.
 - Keep slate-blue exclusive to the user's position and action controls.
 - Prefer map surfaces, route lines, and offset utility panels over generic centered cards.
-- Keep the lowercase Queueless wordmark and pin/queue symbol visible in persistent app chrome; breadcrumbs are secondary orientation only.
+- Keep the lowercase RushEnd wordmark and pin/queue symbol visible in persistent app chrome; breadcrumbs are secondary orientation only.
 - Treat the desktop left rail as the recurring civic-control-room anchor, with top-right controls kept secondary.
 - Give every non-home route at least one cartographic cue: city grain, route trace, contour wash, map slice, coordinate divider, or signal field.
 - Hero imagery must be a queue/line, never a generic city scene; darken it enough for calm text contrast.
