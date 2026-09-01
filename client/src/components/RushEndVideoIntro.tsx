@@ -1,7 +1,8 @@
 /* RushEnd / Signal Cartography: the supplied intro video is the only first-load layer over the live app. */
 import { useRef, useState } from "react";
+import { assetPath } from "@/lib/sitePaths";
 
-const introVideo = "/manus-storage/rushend-logo-intro_73324bfa.mp4";
+const introVideo = assetPath("assets/rushend-intro.mp4");
 
 export default function RushEndVideoIntro({ children }: { children: React.ReactNode }) {
   const videoRef = useRef<HTMLVideoElement>(null);

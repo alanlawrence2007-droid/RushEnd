@@ -1,7 +1,7 @@
 /* RushEnd / Signal Cartography: one shared shell, one live signal context, many ways to decide. */
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import AppShell from "./components/AppShell";
 import RushEndIntroOverlay from "./components/RushEndIntroOverlay";
@@ -16,7 +16,8 @@ import LocationPage from "./pages/LocationPage";
 import NotFound from "./pages/NotFound";
 
 function Router() {
-  return <AppShell><Switch>
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, "") || "/";
+  return <WouterRouter base={basePath}><AppShell><Switch>
     <Route path="/" component={Home} />
     <Route path="/plan" component={PlanPage} />
     <Route path="/discover" component={DiscoverPage} />
@@ -25,7 +26,7 @@ function Router() {
     <Route path="/location/:id" component={LocationPage} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
-  </Switch></AppShell>;
+  </Switch></AppShell></WouterRouter>;
 }
 
 function App() {

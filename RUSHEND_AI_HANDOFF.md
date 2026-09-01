@@ -31,7 +31,7 @@ The runtime starts at `client/src/main.tsx`, which mounts `client/src/App.tsx`. 
 | Intro | `client/src/components/RushEndIntroOverlay.tsx` | Supplied intro video over the mounted app. |
 | Global styles | `client/src/index.css` | Tokens, typography helpers, map texture, responsive rules, and intro-video styling. |
 
-The legacy `client/src/components/RushEndVideoIntro.tsx` file may remain in the source tree as an unused historical component. The active overlay is `RushEndIntroOverlay.tsx`.
+The unused `client/src/components/RushEndVideoIntro.tsx` file is retained as a historical alternative. The active overlay is `RushEndIntroOverlay.tsx`.
 
 ## 4. Routes
 
@@ -58,9 +58,9 @@ The current district lists are representative options for the static demo rather
 
 ## 6. Intro video behavior
 
-The active component is `client/src/components/RushEndIntroOverlay.tsx`. It mounts the real landing page underneath and renders the supplied intro video above it. The active video asset is:
+The active component is `client/src/components/RushEndIntroOverlay.tsx`. It mounts the real landing page underneath and renders the supplied intro video above it. The active video asset is packaged locally at:
 
-`/manus-storage/rushend-intro_a1bc0b8d.mp4`
+`client/public/assets/rushend-intro.mp4`
 
 The wrapper is muted, inline, autoplay-enabled, and responsive. On video completion or playback error it fades out and unmounts so the landing page remains visible. The page should never be replaced by a blank white screen. To swap the clip, update the `introVideo` constant and keep `preload="auto"`, `muted`, and `playsInline` unless browser policy requirements change.
 
@@ -68,14 +68,14 @@ The wrapper is muted, inline, autoplay-enabled, and responsive. On video complet
 
 The deployed asset references currently used by the frontend are:
 
-| Asset | Storage path | Used by |
+| Asset | Repository path | Used by |
 | --- | --- | --- |
-| RushEnd logo | `/manus-storage/rushend-logo_1d4c40c5.png` | Favicon and desktop/mobile shell mark. |
-| Intro video | `/manus-storage/rushend-intro_a1bc0b8d.mp4` | `RushEndIntroOverlay.tsx`. |
-| Queue hero image | `/manus-storage/queueless-hero-queue_cf75bcde.jpg` | Landing hero background. |
-| Route detail image | `/manus-storage/queueless-route-detail_a0e2c628.jpg` | Location/detail imagery. |
+| RushEnd logo | `client/public/assets/rushend-logo.png` | Favicon and desktop/mobile shell mark. |
+| Intro video | `client/public/assets/rushend-intro.mp4` | `RushEndIntroOverlay.tsx`. |
+| Queue hero image | `client/public/assets/queue-hero.webp` | Landing hero background. |
+| Route detail image | `client/public/assets/route-detail.svg` | Route-planning imagery. |
 
-When deploying new static files through this environment, keep the original file outside the project under `/home/ubuntu/webdev-static-assets/` and reference the returned persistent storage path in code. Do not place large media files in `client/public` or `client/src/assets`.
+The GitHub Pages build is self-contained: Vite copies the assets above into the published artifact, and `client/src/lib/sitePaths.ts` prefixes runtime asset paths with the active deployment base URL.
 
 ## 8. Local development
 

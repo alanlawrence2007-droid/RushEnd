@@ -7,8 +7,9 @@ import LocationDetail from "@/components/LocationDetail";
 import { categories, crowdMeta, getAreaLabel, getIndiaState, getLocationsForArea, indiaStates, type QueueLocation } from "@/lib/queueData";
 import { useQueue } from "@/contexts/QueueContext";
 import { cn } from "@/lib/utils";
+import { assetPath } from "@/lib/sitePaths";
 
-const HERO_FALLBACK = "/manus-storage/queueless-hero-queue_cf75bcde.jpg";
+const HERO_FALLBACK = assetPath("assets/queue-hero.webp");
 const HERO_VIDEO_URL = "";
 
 export default function Home() {

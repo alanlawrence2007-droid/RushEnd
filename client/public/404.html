@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RushEnd — know before you go</title>
+    <script>
+      const location = window.location;
+      const base = "/RushEnd/";
+      const route = location.pathname.startsWith(base) ? location.pathname.slice(base.length) : location.pathname.slice(1);
+      const target = route ? `/${route}` : "/";
+      location.replace(`${location.origin}${base}?p=${encodeURIComponent(target)}${location.hash}`);
+    </script>
+  </head>
+  <body></body>
+</html>

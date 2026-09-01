@@ -1,7 +1,8 @@
 /* RushEnd / Supplied intro video: the new RushEnd clip is the only first-load layer over the mounted landing page. */
 import { useRef, useState } from "react";
+import { assetPath } from "@/lib/sitePaths";
 
-const introVideo = "/manus-storage/rushend-intro_a1bc0b8d.mp4";
+const introVideo = assetPath("assets/rushend-intro.mp4");
 
 export default function RushEndIntroOverlay({ children }: { children: React.ReactNode }) {
   const videoRef = useRef<HTMLVideoElement>(null);

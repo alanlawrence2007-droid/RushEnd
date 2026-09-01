@@ -2,6 +2,7 @@
 import { Link, useLocation } from "wouter";
 import { BarChart3, Compass, Home, MapPinned, Plus, Route, UsersRound, UserRound, Zap } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { assetPath } from "@/lib/sitePaths";
 
 const navItems = [
   { href: "/", label: "Map", icon: MapPinned },
@@ -19,7 +20,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <aside className="fixed inset-y-0 left-0 z-40 hidden w-[246px] flex-col border-r border-white/[.08] bg-[#120c12] lg:flex">
         <div className="flex items-center gap-3 px-7 py-7">
           <div className="logo-crop logo-crop--desktop shadow-[0_0_28px_rgba(255,138,43,.18)]">
-            <img src="/manus-storage/rushend-logo_1d4c40c5.png" alt="RushEnd mark" className="logo-crop__image" />
+            <img src={assetPath("assets/rushend-logo.png")} alt="RushEnd mark" className="logo-crop__image" />
           </div>
           <div>
             <p className="font-display text-[17px] font-bold tracking-[-.04em]">RushEnd</p>
@@ -53,7 +54,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       <header className="fixed left-0 right-0 top-0 z-30 flex h-[70px] items-center justify-between border-b border-white/[.08] bg-[#0d090f]/85 px-5 backdrop-blur-xl lg:left-[246px] lg:px-8">
         <div className="flex items-center gap-3 lg:hidden">
-          <div className="logo-crop logo-crop--mobile"><img src="/manus-storage/rushend-logo_1d4c40c5.png" alt="RushEnd mark" className="logo-crop__image" /></div>
+          <div className="logo-crop logo-crop--mobile"><img src={assetPath("assets/rushend-logo.png")} alt="RushEnd mark" className="logo-crop__image" /></div>
           <span className="font-display text-[16px] font-bold tracking-[-.04em]">RushEnd</span>
         </div>
         <div className="hidden items-center gap-2 text-[12px] text-[#86958a] lg:flex"><Home size={14} /> <span className="text-[#cbd4ca]">India</span> <span className="text-[#55635a]">/</span> <span>{isMap ? "Live map" : navItems.find((item) => location.startsWith(item.href))?.label ?? "Explore"}</span></div>
