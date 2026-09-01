@@ -18,6 +18,8 @@ import NotFound from "./pages/NotFound";
 import AuthPage from "./pages/AuthPage";
 import LiveStatusPage from "./pages/LiveStatusPage";
 import StaffDashboardPage from "./pages/StaffDashboardPage";
+import RatePage from "./pages/RatePage";
+import SharedStatusPage from "./pages/SharedStatusPage";
 
 function Router() {
   const basePath = import.meta.env.BASE_URL === "/" ? undefined : import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -31,6 +33,8 @@ function Router() {
     <Route path="/auth" component={AuthPage} />
     <Route path="/status/:id" component={LiveStatusPage} />
     <Route path="/staff" component={StaffDashboardPage} />
+    <Route path="/rate/:id" component={RatePage} />
+    <Route path="/shared/:code" component={SharedStatusPage} />
     <Route path="/404" component={NotFound} />
     <Route component={NotFound} />
   </Switch></AppShell></WouterRouter>;
